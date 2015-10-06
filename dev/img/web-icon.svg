@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="web-icon.svg"
+   inkscape:export-filename="/Users/pnmougel/WebstormProjects/landing-page/dev/img/icon.png"
+   inkscape:export-xdpi="49"
+   inkscape:export-ydpi="49">
+  <defs
+     id="defs4">
+    <filter
+       id="filter3959"
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow">
+      <feFlood
+         id="feFlood3961"
+         flood-opacity="0.5"
+         flood-color="rgb(0,0,0)"
+         result="flood" />
+      <feComposite
+         id="feComposite3963"
+         in2="SourceGraphic"
+         in="flood"
+         operator="in"
+         result="composite1" />
+      <feGaussianBlur
+         id="feGaussianBlur3965"
+         in="composite"
+         stdDeviation="4"
+         result="blur" />
+      <feOffset
+         id="feOffset3967"
+         dx="0"
+         dy="5"
+         result="offset" />
+      <feComposite
+         id="feComposite3969"
+         in2="offset"
+         in="SourceGraphic"
+         operator="over"
+         result="composite2" />
+    </filter>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3762"
+       id="radialGradient3768"
+       cx="339.49243"
+       cy="472.45346"
+       fx="339.49243"
+       fy="472.45346"
+       r="175.25002"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.73490041,2.0626827e-8,-2.0790586e-8,0.74073488,89.999321,122.4907)" />
+    <linearGradient
+       id="linearGradient3762">
+      <stop
+         style="stop-color:#ff8184;stop-opacity:1;"
+         offset="0"
+         id="stop3764" />
+      <stop
+         style="stop-color:#ff5156;stop-opacity:1;"
+         offset="1"
+         id="stop3766" />
+    </linearGradient>
+    <filter
+       color-interpolation-filters="sRGB"
+       id="filter3959-6"
+       inkscape:label="Drop Shadow">
+      <feFlood
+         id="feFlood3961-2"
+         flood-opacity="0.5"
+         flood-color="rgb(0,0,0)"
+         result="flood" />
+      <feComposite
+         id="feComposite3963-8"
+         in2="SourceGraphic"
+         in="flood"
+         operator="in"
+         result="composite1" />
+      <feGaussianBlur
+         id="feGaussianBlur3965-6"
+         stdDeviation="4"
+         result="blur" />
+      <feOffset
+         id="feOffset3967-4"
+         dx="0"
+         dy="5"
+         result="offset" />
+      <feComposite
+         id="feComposite3969-6"
+         in2="offset"
+         in="SourceGraphic"
+         operator="over"
+         result="composite2" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.9990385"
+     inkscape:cx="427.28235"
+     inkscape:cy="566.52003"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="513"
+     inkscape:window-height="406"
+     inkscape:window-x="1334"
+     inkscape:window-y="308"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g4126"
+       transform="matrix(1.1274623,0,0,1.1274623,907.55601,25.441116)">
+      <g
+         transform="translate(-283.36425,14.223562)"
+         id="g3989">
+        <rect
+           transform="matrix(0.72807521,0,0,0.72807521,-123.28955,359.04158)"
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           style="fill:#45ffde;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:18.27313042;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3959-6)"
+           id="rect3920"
+           width="277.08337"
+           height="277.08337"
+           x="552.95868"
+           y="333.57452"
+           ry="25.848486" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3922"
+           d="m 418.15171,637.08901 a 13.784839,16.508385 0 0 0 -11.90977,8.17599 l -36.05236,73.91922 -14.79568,-30.30533 a 13.784839,16.508385 0 0 0 -11.88824,-8.176 l -59.16119,0 0,33.01347 51.23571,0 22.69964,46.55416 a 13.784839,16.508385 0 0 0 23.81954,0 l 43.97784,-90.16804 49.83583,0 0,-33.01347 -57.76132,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3924"
+           d="m 418.15171,646.87535 a 5.6173214,6.7271667 0 0 0 -4.84574,3.35293 l -43.11639,88.38841 -21.83816,-44.77452 a 5.6173214,6.7271667 0 0 0 -4.84576,-3.35292 l -59.16119,0 0,13.4633 55.90916,0 25.0902,51.403 a 5.6173214,6.7271667 0 0 0 9.6915,0 l 46.34689,-95.01688 54.53081,0 0,-13.46332 -57.76132,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#00f0c6;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+      </g>
+      <g
+         transform="translate(497.95079,488.59155)"
+         id="g3953">
+        <rect
+           ry="25.848486"
+           y="-10.550234"
+           x="210.04213"
+           height="277.08337"
+           width="277.08337"
+           id="rect3846"
+           style="fill:#ff45c4;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:18.27313042;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3959)"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999"
+           transform="matrix(0.72807521,0,0,0.72807521,-115.32449,135.2223)" />
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+           d="m 176.44772,162.72103 a 13.784839,16.508385 0 0 0 -11.90977,8.17598 l -36.05236,73.91922 -14.79568,-30.30532 a 13.784839,16.508385 0 0 0 -11.88824,-8.176 l -59.161188,0 0,33.01347 51.235711,0 22.699627,46.55415 a 13.784839,16.508385 0 0 0 23.81955,0 l 43.97784,-90.16803 49.83583,0 0,-33.01347 -57.76132,0 z"
+           id="path3848"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cdbf00;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+           d="m 176.44772,172.50737 a 5.6173214,6.7271667 0 0 0 -4.84574,3.35292 l -43.11639,88.38841 -21.83816,-44.77451 a 5.6173214,6.7271667 0 0 0 -4.84576,-3.35293 l -59.161188,0 0,13.4633 55.909161,0 25.090197,51.40301 a 5.6173214,6.7271667 0 0 0 9.6915,0 l 46.34689,-95.01689 54.53081,0 0,-13.46331 -57.76132,0 z"
+           id="path3850"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3852"
+           d="m 176.44772,162.72103 a 13.784839,16.508385 0 0 0 -11.90977,8.17598 l -36.05236,73.91922 -14.79568,-30.30532 a 13.784839,16.508385 0 0 0 -11.88824,-8.176 l -59.161188,0 0,33.01347 51.235711,0 22.699627,46.55415 a 13.784839,16.508385 0 0 0 23.81955,0 l 43.97784,-90.16803 49.83583,0 0,-33.01347 -57.76132,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3854"
+           d="m 176.44772,172.50737 a 5.6173214,6.7271667 0 0 0 -4.84574,3.35292 l -43.11639,88.38841 -21.83816,-44.77451 a 5.6173214,6.7271667 0 0 0 -4.84576,-3.35293 l -59.161188,0 0,13.4633 55.909161,0 25.090197,51.40301 a 5.6173214,6.7271667 0 0 0 9.6915,0 l 46.34689,-95.01689 54.53081,0 0,-13.46331 -57.76132,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#f000a3;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+      </g>
+      <g
+         transform="translate(228.14524,247.84363)"
+         id="g3942">
+        <rect
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           style="fill:#abff45;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:18.27313042;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3959)"
+           id="rect3836"
+           width="277.08337"
+           height="277.08337"
+           x="222.20901"
+           y="338.86102"
+           ry="25.848486"
+           transform="matrix(0.72807521,0,0,0.72807521,-124.1829,121.57254)" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3838"
+           d="m 176.44771,403.46894 a 13.784839,16.508385 0 0 0 -11.90976,8.17599 l -36.05237,73.91922 -14.79568,-30.30533 a 13.784839,16.508385 0 0 0 -11.88824,-8.176 l -59.161186,0 0,33.01347 51.235709,0 22.699637,46.55416 a 13.784839,16.508385 0 0 0 23.81954,0 l 43.97785,-90.16804 49.83583,0 0,-33.01347 -57.76133,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3840"
+           d="m 176.44771,413.25528 a 5.6173214,6.7271667 0 0 0 -4.84574,3.35293 l -43.11639,88.38841 -21.83816,-44.77452 a 5.6173214,6.7271667 0 0 0 -4.84576,-3.35292 l -59.161186,0 0,13.4633 55.909169,0 25.090197,51.403 a 5.6173214,6.7271667 0 0 0 9.69149,0 l 46.34689,-95.01689 54.53082,0 0,-13.46331 -57.76133,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cdbf00;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+           d="m 176.44771,403.46894 a 13.784839,16.508385 0 0 0 -11.90976,8.17599 l -36.05237,73.91922 -14.79568,-30.30533 a 13.784839,16.508385 0 0 0 -11.88824,-8.176 l -59.161186,0 0,33.01347 51.235709,0 22.699637,46.55416 a 13.784839,16.508385 0 0 0 23.81954,0 l 43.97785,-90.16804 49.83583,0 0,-33.01347 -57.76133,0 z"
+           id="path3842"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#84f000;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+           d="m 176.44771,413.25528 a 5.6173214,6.7271667 0 0 0 -4.84574,3.35293 l -43.11639,88.38841 -21.83816,-44.77452 a 5.6173214,6.7271667 0 0 0 -4.84576,-3.35292 l -59.161186,0 0,13.4633 55.909169,0 25.090197,51.403 a 5.6173214,6.7271667 0 0 0 9.69149,0 l 46.34689,-95.01689 54.53082,0 0,-13.46331 -57.76133,0 z"
+           id="path3844"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+      </g>
+    </g>
+    <g
+       id="g4096"
+       transform="matrix(1.1274623,0,0,1.1274623,907.55601,-16.558884)">
+      <g
+         transform="translate(-533.63697,-244.35539)"
+         id="g3974">
+        <rect
+           ry="25.848486"
+           y="3.9117725"
+           x="555.23645"
+           height="277.08337"
+           width="277.08337"
+           id="rect3914"
+           style="fill:#4e45ff;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:18.27313042;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3959)"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999"
+           transform="matrix(0.72807521,0,0,0.72807521,125.32478,366.11933)" />
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+           d="m 668.42445,404.14749 a 13.784839,16.508385 0 0 0 -11.90977,8.17599 l -36.05236,73.91922 -14.79569,-30.30533 a 13.784839,16.508385 0 0 0 -11.88823,-8.176 l -59.1612,0 0,33.01347 51.23571,0 22.69964,46.55416 a 13.784839,16.508385 0 0 0 23.81954,0 l 43.97785,-90.16804 49.83583,0 0,-33.01347 -57.76132,0 z"
+           id="path3916"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#150be5;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+           d="m 668.42445,413.93383 a 5.6173214,6.7271667 0 0 0 -4.84575,3.35293 l -43.11638,88.38841 -21.83817,-44.77451 a 5.6173214,6.7271667 0 0 0 -4.84575,-3.35293 l -59.1612,0 0,13.4633 55.90917,0 25.0902,51.403 a 5.6173214,6.7271667 0 0 0 9.69149,0 l 46.34689,-95.01688 54.53082,0 0,-13.46332 -57.76132,0 z"
+           id="path3918"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+      </g>
+      <g
+         transform="translate(498.71583,-477.29692)"
+         id="g3994">
+        <rect
+           transform="matrix(0.72807521,0,0,0.72807521,-124.94794,355.19261)"
+           ry="25.848486"
+           y="338.86102"
+           x="222.20901"
+           height="277.08337"
+           width="277.08337"
+           id="rect3926"
+           style="fill:#ff8245;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:18.27313042;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3959)"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+           d="m 175.68267,637.08901 a 13.784839,16.508385 0 0 0 -11.90976,8.17599 l -36.05237,73.91922 -14.79568,-30.30533 a 13.784839,16.508385 0 0 0 -11.88824,-8.176 l -59.161195,0 0,33.01347 51.235712,0 22.699643,46.55416 a 13.784839,16.508385 0 0 0 23.81954,0 l 43.97785,-90.16804 49.83583,0 0,-33.01347 -57.76133,0 z"
+           id="path3928"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cdbf00;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+           d="m 175.68267,646.87535 a 5.6173214,6.7271667 0 0 0 -4.84574,3.35293 l -43.11639,88.38841 -21.83816,-44.77452 a 5.6173214,6.7271667 0 0 0 -4.84576,-3.35292 l -59.161195,0 0,13.4633 55.909172,0 25.090203,51.403 a 5.6173214,6.7271667 0 0 0 9.69149,0 l 46.34689,-95.01689 54.53082,0 0,-13.46331 -57.76133,0 z"
+           id="path3930"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-ydpi="49.299999" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3932"
+           d="m 175.68267,637.08901 a 13.784839,16.508385 0 0 0 -11.90976,8.17599 l -36.05237,73.91922 -14.79568,-30.30533 a 13.784839,16.508385 0 0 0 -11.88824,-8.176 l -59.161195,0 0,33.01347 51.235712,0 22.699643,46.55416 a 13.784839,16.508385 0 0 0 23.81954,0 l 43.97785,-90.16804 49.83583,0 0,-33.01347 -57.76133,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3934"
+           d="m 175.68267,646.87535 a 5.6173214,6.7271667 0 0 0 -4.84574,3.35293 l -43.11639,88.38841 -21.83816,-44.77452 a 5.6173214,6.7271667 0 0 0 -4.84576,-3.35292 l -59.161195,0 0,13.4633 55.909172,0 25.090203,51.403 a 5.6173214,6.7271667 0 0 0 9.69149,0 l 46.34689,-95.01689 54.53082,0 0,-13.46331 -57.76133,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#f04f00;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+      </g>
+      <g
+         transform="translate(-259.79085,-5.9593898)"
+         id="g3979">
+        <rect
+           transform="matrix(0.72807521,0,0,0.72807521,121.28417,127.72333)"
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           style="fill:#ffd445;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:18.27313042;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3959)"
+           id="rect3908"
+           width="277.08337"
+           height="277.08337"
+           x="555.23645"
+           y="3.9117725"
+           ry="25.848486" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3910"
+           d="m 664.38384,165.75149 a 13.784839,16.508385 0 0 0 -11.90977,8.17599 l -36.05236,73.91922 -14.79569,-30.30533 a 13.784839,16.508385 0 0 0 -11.88823,-8.176 l -59.1612,0 0,33.01347 51.23571,0 22.69964,46.55416 a 13.784839,16.508385 0 0 0 23.81954,0 l 43.97785,-90.16804 49.83583,0 0,-33.01347 -57.76132,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+        <path
+           inkscape:export-ydpi="49.299999"
+           inkscape:export-xdpi="49.299999"
+           inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+           inkscape:connector-curvature="0"
+           id="path3912"
+           d="m 664.38384,175.53783 a 5.6173214,6.7271667 0 0 0 -4.84575,3.35293 l -43.11638,88.38841 -21.83817,-44.77451 a 5.6173214,6.7271667 0 0 0 -4.84575,-3.35293 l -59.1612,0 0,13.4633 55.90917,0 25.0902,51.403 a 5.6173214,6.7271667 0 0 0 9.69149,0 l 46.34689,-95.01688 54.53082,0 0,-13.46332 -57.76132,0 z"
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#e5b40b;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+      </g>
+    </g>
+    <rect
+       ry="25.848486"
+       y="333.57452"
+       x="552.95868"
+       height="277.08337"
+       width="277.08337"
+       id="rect3757-9"
+       style="fill:#ff4545;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:18.27313042;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3959-6)"
+       inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+       inkscape:export-xdpi="49.299999"
+       inkscape:export-ydpi="49.299999"
+       transform="matrix(0.82087735,0,0,0.82087735,1057.4603,149.19809)" />
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 1667.9149,462.68609 a 15.541886,18.612582 0 0 0 -13.4278,9.21812 l -40.6477,83.34113 -16.6815,-34.16812 a 15.541886,18.612582 0 0 0 -13.4036,-9.21813 l -66.702,0 0,37.22144 57.7664,0 25.5929,52.48806 a 15.541886,18.612582 0 0 0 26.8557,0 l 49.5833,-101.66106 56.1881,0 0,-37.22144 -65.1238,0 z"
+       id="path3759-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+       inkscape:export-xdpi="49.299999"
+       inkscape:export-ydpi="49.299999" />
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff0f17;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 1667.9149,473.71982 a 6.3333181,7.5846268 0 0 0 -5.4633,3.7803 l -48.6122,99.6546 -24.6217,-50.48159 a 6.3333181,7.5846268 0 0 0 -5.4634,-3.78029 l -66.702,0 0,15.17937 63.0355,0 28.2882,57.95494 a 6.3333181,7.5846268 0 0 0 10.9268,0 l 52.2544,-107.12795 61.4815,0 0,-15.17938 -65.1238,0 z"
+       id="path3761-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+       inkscape:export-xdpi="49.299999"
+       inkscape:export-ydpi="49.299999" />
+    <rect
+       transform="matrix(0.82087735,0,0,0.82087735,751.39495,419.81077)"
+       inkscape:export-ydpi="49.299999"
+       inkscape:export-xdpi="49.299999"
+       inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+       style="fill:#ffeb45;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:18.27313042;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3959)"
+       id="rect3936"
+       width="277.08337"
+       height="277.08337"
+       x="555.23645"
+       y="3.9117725"
+       ry="25.848486" />
+    <path
+       inkscape:export-ydpi="49.299999"
+       inkscape:export-xdpi="49.299999"
+       inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+       inkscape:connector-curvature="0"
+       id="path3938"
+       d="m 1363.7194,462.68609 a 15.541886,18.612582 0 0 0 -13.4279,9.21812 l -40.6476,83.34113 -16.6816,-34.16811 a 15.541886,18.612582 0 0 0 -13.4036,-9.21813 l -66.702,0 0,37.22144 57.7664,0 25.5929,52.48806 a 15.541886,18.612582 0 0 0 26.8557,0 l 49.5833,-101.66107 56.1881,0 0,-37.22144 -65.1237,0 z"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+    <path
+       inkscape:export-ydpi="49.299999"
+       inkscape:export-xdpi="49.299999"
+       inkscape:export-filename="/home/nico/workspace/votcast-app/resources/icon.png"
+       inkscape:connector-curvature="0"
+       id="path3940"
+       d="m 1363.7194,473.71982 a 6.3333181,7.5846268 0 0 0 -5.4634,3.7803 l -48.6121,99.6546 -24.6218,-50.48157 a 6.3333181,7.5846268 0 0 0 -5.4634,-3.7803 l -66.702,0 0,15.17936 63.0355,0 28.2883,57.95495 a 6.3333181,7.5846268 0 0 0 10.9267,0 l 52.2544,-107.12795 61.4815,0 0,-15.17939 -65.1237,0 z"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#e5ce0b;fill-opacity:1;stroke:none;stroke-width:16.29999924;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+    <rect
+       inkscape:export-ydpi="49.299999"
+       inkscape:export-xdpi="49.299999"
+       inkscape:export-filename="/Users/pnmougel/WebstormProjects/landing-page/dev/img/icon2.png"
+       style="fill:#ffffff;fill-opacity:0;fill-rule:nonzero;stroke:none;stroke-width:18.84313393;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4255"
+       width="263.12589"
+       height="265.12686"
+       x="304.09961"
+       y="363.17697"
+       ry="45.141628" />
+    <g
+       id="g4259"
+       transform="translate(16.96668,31.72377)"
+       inkscape:export-filename="/Users/pnmougel/WebstormProjects/landing-page/dev/img/icon2.png"
+       inkscape:export-xdpi="49"
+       inkscape:export-ydpi="49">
+      <rect
+         transform="matrix(0.82087735,0,0,0.82087735,-150.8109,347.0798)"
+         inkscape:export-ydpi="49.299999"
+         inkscape:export-xdpi="49.299999"
+         inkscape:export-filename="/Users/pnmougel/WebstormProjects/landing-page/dev/img/icon2.png"
+         style="fill:#ffffff;fill-opacity:0;fill-rule:nonzero;stroke:#0bb3e5;stroke-width:21.92775726;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4251"
+         width="277.08337"
+         height="277.08337"
+         x="555.23645"
+         y="3.9117725"
+         ry="36.208244" />
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#0bb3e5;fill-opacity:1;stroke:#0bb3e5;stroke-width:8;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate"
+         d="m 463.84049,404.98885 a 6.6694945,7.5846268 0 0 0 -5.75339,3.7803 l -51.19247,99.6546 -25.92863,-50.48157 a 6.6694945,7.5846268 0 0 0 -5.75339,-3.78031 l -70.24261,0 0,15.17937 66.38145,0 29.78981,57.95494 a 6.6694945,7.5846268 0 0 0 11.50678,0 l 55.02809,-107.12795 64.74487,0 0,-15.17938 -68.58051,0 z"
+         id="path4257"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/Users/pnmougel/WebstormProjects/landing-page/dev/img/icon2.png"
+         inkscape:export-xdpi="49.299999"
+         inkscape:export-ydpi="49.299999" />
+    </g>
+  </g>
+</svg>
