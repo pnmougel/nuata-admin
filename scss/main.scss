@@ -1,0 +1,21 @@
+// Lib import
+@import "../dev/lib/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../dev/lib/components-font-awesome/scss/font-awesome";
+
+// App import
+@import "colors";
+@import "fonts";
+@import "utils";
+@import "../dev/app/styles/main";
+
+/* Bug fix for autoprefixer */
+* {
+  box-sizing: border-box;
+}
+
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+
+
