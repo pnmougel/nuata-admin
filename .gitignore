@@ -1,0 +1,9 @@
+logs/*
+!.gitkeep
+node_modules/
+/dev/lib/
+/tmp
+/.idea
+.directory
+gulp_tasks/sshConfig.js
+dev/css
