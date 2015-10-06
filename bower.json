@@ -1,0 +1,36 @@
+{
+  "name": "Quata",
+  "version": "0.0.1",
+  "authors": [
+    "pnmougel <pnmougel@gmail.com>"
+  ],
+  "description": "Quata web application",
+  "main": "dev/index.html",
+  "keywords": [
+    "landingpage",
+    "quata",
+    "opendata"
+  ],
+  "license": "MIT",
+  "homepage": "http://quata.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-animate": "~1.4.3",
+    "angular-ui-router": "~0.2.15",
+    "components-font-awesome": "~4.4.0",
+    "angular-resource": "~1.4.3",
+    "angular-moment": "~0.10.2",
+    "angular-google-analytics": "~0.0.18"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "~1.4.3"
+  }
+}
