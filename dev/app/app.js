@@ -1,47 +1,66 @@
-var App = angular.module('votcast-lp', [
+var App = angular.module('nuata', [
     'ngAnimate',
     'ui.router',
     'ngResource',
     'angularMoment',
-    'angular-google-analytics',
+    'ui.ace',
+    'ngMaterial',
+    'ui.bootstrap'
 ]);
 
 App.run(function ($rootScope) {
+    Array.prototype.equals = function (array) {
+        // if the other array is a falsy value, return
+        if (!array)
+            return false;
+
+        // compare lengths - can save a lot of time
+        if (this.length != array.length)
+            return false;
+
+        for (var i = 0, l=this.length; i < l; i++) {
+            // Check if we have nested arrays
+            if (this[i] instanceof Array && array[i] instanceof Array) {
+                // recurse into the nested arrays
+                if (!this[i].equals(array[i]))
+                    return false;
+            }
+            else if (this[i] != array[i]) {
+                // Warning - two different object instances will never be equal: {x:20} != {x:20}
+                return false;
+            }
+        }
+        return true;
+    };
+
+    Array.prototype.maxBy = function (f) {
+        var curValue = Number.MIN_VALUE;
+        var curItem = null;
+        this.forEach(function (item) {
+            var v = f(item);
+            if(v > curValue) {
+                curItem = item;
+                curValue = v;
+            }
+        });
+        return { item: curItem, max: curValue };
+    };
+
+    Array.prototype.minBy = function (f) {
+        var curValue = Number.MAX_VALUE;
+        var curItem = null;
+        this.forEach(function (item) {
+            var v = f(item);
+            if(v < curValue) {
+                curItem = item;
+                curValue = v;
+            }
+        });
+        return { item: curItem, min: curValue };
+    };
 });
 
-App.config(function ($httpProvider, AnalyticsProvider) {
-    /*
-    // Track all routes (or not)
-    AnalyticsProvider.trackPages(true);
-
-    // Track all URL query params (default is false)
-    AnalyticsProvider.trackUrlParams(true);
-
-    // Optional set domain (Use 'none' for testing on localhost)
-    AnalyticsProvider.setDomainName('votcast.com');
-
-    AnalyticsProvider.useAnalytics(true);
-
-    // Use display features plugin
-    AnalyticsProvider.useDisplayFeatures(true);
-
-    $httpProvider.interceptors.push(function($q, $injector) {
-        return {
-            request: function(request) {
-                request.headers['Authorization'] = 'Bearer ' + localStorage.token;
-                return request;
-            },
-            responseError: function(rejection) {
-                if (rejection.status === 401) {
-                    $injector.get('$state').go('signIn');
-                }
-                return $q.reject(rejection);
-            }
-        };
-    });
-    */
-
+App.config(function ($httpProvider) {
     $httpProvider.defaults.useXDomain = false;
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
 });

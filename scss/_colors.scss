@@ -8,37 +8,9 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 
-$borderLight: #ddd;
-$borderDark: #ccc;
-
-$facebook-color: #3b5998;
-$google-color: #dd4b39;
-$twitter-color: #00aced;
-
-/* Choice colors */
-$palette2: #11C1F3, #FFC900;
-$palette3: #33B5E5, #99CC00, #FFBB33;
-$palette4: #33B5E5, #99CC00, #FFBB33, #FF5722;
-$palette5: #33B5E5, #99CC00, #FFBB33, #FF5722, #E261A2;
-$palette6: #33B5E5, #7ABEB6, #99CC00, #FFBB33, #FF5722, #E261A2;
-$palettes: $palette2, $palette3, $palette4, $palette5, $palette6;
-
-@for $p from 0 to length($palettes) {
-  @for $i from 0 to length(nth($palettes, $p + 1)) {
-    $curColor: nth(nth($palettes, $p + 1), $i + 1);
-    $curColorWithAlpha: rgba( $curColor, .8 );
-    $curColorDark: darken( $curColor, 10% );
-
-    .palette#{$p + 2}-color#{$i} {color: $curColor; }
-    .palette#{$p + 2}-border#{$i} {border-color: $curColor; }
-    .palette#{$p + 2}-borderDark#{$i} {border-color: $curColorDark; }
-    .palette#{$p + 2}-background#{$i} { background-color: $curColor; }
-    .palette#{$p + 2}-colorAlpha#{$i} {color: $curColorWithAlpha; }
-    .palette#{$p + 2}-backgroundAlpha#{$i} { background-color: $curColorWithAlpha; }
-    .palette#{$p + 2}-outline#{$i} {
-        -webkit-text-fill-color: #fff;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: $curColor;
-    }
-  }
-}
+$info:      #5BC0DE;
+$success:   #5CB85C;
+$warning:   #F0AD4E;
+$alert:     #D9534F;
+$default:      #777777;
+$primary:   #337AB7;

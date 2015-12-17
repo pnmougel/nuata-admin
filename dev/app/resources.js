@@ -1,14 +1,8 @@
 App.factory('Nuata', function($resource, ServerUrl) {
-    return $resource(ServerUrl + '/questions', {}, {
+    return $resource(ServerUrl + '/', {}, {
         search: {
-            method: 'GET',
-            url: ServerUrl + '/:query',
-            params: { query: '@query' },
-            isArray: true
+            method: 'POST',
+            url: ServerUrl + '/data'
         }
     });
 });
-
-
-
-

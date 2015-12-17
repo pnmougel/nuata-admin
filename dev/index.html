@@ -1,43 +1,75 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Votcast</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="description" content="">
-        <link rel="shortcut icon" href="./img/icon2.png">
+<head>
+    <title>Nuata</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="./img/icon2.png">
 
-        <!-- style:css -->
-        <link rel="stylesheet" href="css/main.css">
-        <!-- endinject -->
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css">
 
-        <!-- vendor:js -->
-        <script src="lib/angular/angular.js"></script>
-        <script src="lib/angular-animate/angular-animate.js"></script>
-        <script src="lib/jquery/dist/jquery.js"></script>
-        <script src="lib/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-        <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="lib/angular-resource/angular-resource.js"></script>
-        <script src="lib/moment/moment.js"></script>
-        <script src="lib/moment/locale/fr.js"></script>
-        <script src="lib/angular-moment/angular-moment.js"></script>
-        <script src="lib/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
-        <!-- endinject -->
+    <!-- style:css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- endinject -->
 
-        <!-- app:js -->
-        <script src="app/app.js"></script>
-        <script src="app/resources.js"></script>
-        <script src="app/config/constants.js"></script>
-        <script src="app/config/routes.js"></script>
-        <script src="app/controllers/main.js"></script>
-        <!-- endinject -->
-    </head>
+    <!-- vendor:js -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/moment/locale/fr.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
+    <script src="lib/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
+    <script src="lib/jsoneditor/dist/jsoneditor.min.js"></script>
+    <script src="lib/ng-jsoneditor/ng-jsoneditor.min.js"></script>
+    <script src="lib/angular-ui-ace/ui-ace.js"></script>
+    <script src="lib/trianglify/dist/trianglify.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+    <script src="lib/clipboard/dist/clipboard.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endinject -->
 
-    <body ng-app="votcast-lp" >
-        <div class="app-container" data-ui-view=""></div>
-    </body>
+    <!-- app:js -->
+    <script src="app/app.js"></script>
+    <script src="app/resources.js"></script>
+    <script src="app/config/constants.js"></script>
+    <script src="app/config/routes.js"></script>
+    <script src="app/dashboard/ctrl.js"></script>
+    <script src="app/item/ctrl.js"></script>
+    <script src="app/items/ctrl.js"></script>
+    <script src="app/menu/ctrl.js"></script>
+    <script src="app/models/BaseModel.js"></script>
+    <script src="app/models/Category.js"></script>
+    <script src="app/models/Dimension.js"></script>
+    <script src="app/models/Fact.js"></script>
+    <script src="app/models/Ooi.js"></script>
+    <script src="app/models/Unit.js"></script>
+    <script src="app/resources/Categories.js"></script>
+    <script src="app/resources/Dimensions.js"></script>
+    <script src="app/resources/Facts.js"></script>
+    <script src="app/resources/Init.js"></script>
+    <script src="app/resources/Oois.js"></script>
+    <script src="app/resources/Units.js"></script>
+    <script src="app/services/ItemConfig.js"></script>
+    <script src="app/services/status.js"></script>
+    <script src="app/updates/ctrl.js"></script>
+    <script src="app/components/block/directive.js"></script>
+    <script src="app/components/pageTitle/directive.js"></script>
+    <script src="app/components/tag/directive.js"></script>
+    <script src="app/query/categories/directive.js"></script>
+    <script src="app/query/categories/filters.js"></script>
+    <script src="app/query/categories/match.js"></script>
+    <!-- endinject -->
+</head>
+
+<body ng-app="nuata">
+    <div class="app-container" data-ui-view=""></div>
+</body>
 </html>

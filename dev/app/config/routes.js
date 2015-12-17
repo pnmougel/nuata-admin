@@ -9,15 +9,40 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
 
         // Set the following to true to enable the HTML5 Mode
         // You may have to set <base> tag in index and a routing configuration in your server
-        $locationProvider.html5Mode(false);
+        //$locationProvider.html5Mode(true);
 
         // default route
-        $urlRouterProvider.otherwise('/');
+        // $urlRouterProvider.otherwise('app/dashboard');
+        $urlRouterProvider.otherwise('app/items');
 
         $stateProvider
             .state('app', {
-                url: '/',
-                templateUrl: 'app/views/main.html',
-                controller: 'AppCtrl'
+                abstract: true,
+                url: '/app',
+                templateUrl: 'app/menu/view.html',
+                controller: 'MenuCtrl'
             })
+            .state('app.dashboard', {
+                url: '/dashboard',
+                templateUrl: 'app/dashboard/view.html',
+                controller: 'DashboardCtrl'
+            })
+            .state('app.items', {
+                url: '/items',
+                templateUrl: 'app/items/view.html',
+                controller: 'ItemsCtrl',
+                params: { type: null }
+            })
+            .state('app.item', {
+                url: '/item',
+                templateUrl: 'app/item/view.html',
+                controller: 'ItemCtrl',
+                params: { id: null, type: null }
+            })
+            .state('app.updates', {
+                url: '/updates',
+                templateUrl: 'app/updates/view.html',
+                controller: 'UpdateCtrl',
+                params: { name: null }
+            });
     }]);

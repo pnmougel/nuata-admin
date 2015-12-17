@@ -27,10 +27,19 @@
     "components-font-awesome": "~4.4.0",
     "angular-resource": "~1.4.3",
     "angular-moment": "~0.10.2",
-    "angular-google-analytics": "~0.0.18"
+    "angular-google-analytics": "~0.0.18",
+    "ng-jsoneditor": "angular-tools/ng-jsoneditor#~1.0.0",
+    "angular-ui-ace": "bower",
+    "flag-icon-css": "~0.8.2",
+    "trianglify": "~0.4.0",
+    "angular-material": "~0.11.4",
+    "angular-aria": "~1.4.7",
+    "clipboard": "~1.5.5",
+    "angular-bootstrap": "~0.14.3"
   },
   "devDependencies": {},
   "resolutions": {
-    "angular": "~1.4.3"
+    "angular": "~1.4.3",
+    "trianglify": "~0.4.0"
   }
 }
