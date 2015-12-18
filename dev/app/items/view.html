@@ -1,0 +1,58 @@
+<page-title label="curConfig.plural"></page-title>
+
+<block title="'Search'">
+    <md-content>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Name</label>
+                <input ng-model="filter.name" placeholder="Leave empty for all" ng-change="getItems()">
+            </md-input-container>
+
+            <md-autocomplete ng-repeat="mapping in dependencies" flex="25"
+                             md-selected-item="mapping.selectedItem"
+                             md-selected-item-change="updateFilter(mapping)"
+                             md-search-text-change="autoCompleteTextChange(mapping)"
+                             md-search-text="mapping.searchText"
+                             md-items="item in autoComplete(mapping)"
+                             md-autoselect="true"
+                             md-item-text="item.name[curLang]"
+                             md-floating-label="{{mapping.label}}"
+                             md-placeholder="Leave empty for all">
+                <span md-highlight-text="mapping.searchText">{{item.name[curLang]}}</span>
+            </md-autocomplete>
+        </div>
+    </md-content>
+</block>
+
+<uib-pagination
+        flex=""
+        style="margin: 0 0 5px 0;"
+        ng-change="pageChanged()" class="pagination-sm" boundary-links="true"
+        total-items="nbItems" ng-model="filter.page" max-size="10" items-per-page="filter.limit"
+        previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+    <span style="position: relative;top: 5px;float: right;">{{nbItems | number}} results</span>
+</div>
+
+<block ng-repeat="item in items" border-color="item.color" >
+    <div ng-hide="true">
+        <div layout="row">
+            <div flex="grow" >
+                <span>{{item.name[curLang]}}</span>
+            </div>
+            <div ng-hide="item.expand" class="itemId" data-clipboard-text="{{item._id}}" flex="20" style="text-align: right;">
+                {{item._id}}
+            </div>
+            <div ng-show="item.expand" flex="20" style="text-align: right;">
+                <md-button class="md-raised" ng-click="updateItem(item)">Save</md-button>
+                <md-button class="md-raised" ng-click="item.expand = false">Close</md-button>
+            </div>
+        </div>
+        <div>
+            <tag ng-repeat="category in item.categories" item="item" category="category" on-delete="deleteCategory" icon="'fa fa-tag'" label="category.name[curLang]"></tag>
+        </div>
+        <div>
+            <tag ng-repeat="parent in item.parents" item="item" category="parent" icon="'fa fa-arrow-circle-o-up'" label="parent.name[curLang]"></tag>
+        </div>
+    </div>
+    <item item="item"></item>
+</block>

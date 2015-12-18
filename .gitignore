@@ -7,3 +7,7 @@ node_modules/
 .directory
 gulp_tasks/sshConfig.js
 dev/css
+.sass-cache/
+**/.sass-cache/
+/**/.sass-cache/
+www

@@ -1,0 +1,33 @@
+<div class="item" ng-show="item.isVisible()">
+    <div class="row">
+        <div class="col-xs-2">
+            <span ng-click="setLang(lang)"
+                  class="lbl-info{{lang === curLang ? '-selected' : ''}} item-lang"
+                  ng-repeat="lang in item.getLang()">{{lang}}</span>
+        </div>
+        <div class="col-xs-6 item-name" ng-click="item.showDetails = !item.showDetails">
+            <span ng-repeat="name in item.names[curLang]">{{name}}</span>
+        </div>
+        <div class="col-xs-4">
+            <span class="pull-right">
+                <span ng-repeat="status in item.statuses" class="lbl-{{status.kind}}">{{status.name}}</span>
+            </span>
+        </div>
+    </div>
+
+    <!--<div class="row" ng-show="item.showDetails">-->
+        <!--<div ng-show="item.categories" class="col-xs-2"></div>-->
+        <!--<div ng-show="item.categories" class="col-xs-10">-->
+            <!--<span class="lbl-primary" ng-repeat="category in item.categories">{{references.categories[category].names[0].name}}</span>-->
+        <!--</div>-->
+
+        <!--<div class="col-xs-2"></div>-->
+        <!--<div class="col-xs-10 item-description">{{displayDescription}}</div>-->
+
+        <!--<div ng-repeat="hit in item.hits">-->
+            <!--<span class="label label-success">Score: {{hit.score}}</span>-->
+            <!--Names: <span ng-repeat="name in hit.source.names_en">{{name}} </span>-->
+            <!--<span ng-repeat="name in hit.source.names_fr">{{name}}</span>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

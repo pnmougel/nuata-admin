@@ -1,0 +1,104 @@
+<div class="item">
+    <!--<md-button ng-click="printItem()">Update</md-button>-->
+
+    <div layout="row">
+        <h5 flex="auto">Names</h5>
+        <a class="link-add" href="" ng-click="addName()">add a name</a>
+    </div>
+    <div layout="row" ng-repeat="name in names">
+        <i tabindex="-1" class="fa {{name.isDefault ? 'fa-star' : 'fa-star-o'}} action-star" ng-click="toggleDefaultName(name, !name.isDefault)"></i>
+        <md-select class="lang-select" aria-label="language for the name" flex="5" ng-model="name.lang">
+            <md-option ng-repeat="lang in languages" value="{{lang}}">
+                {{lang}}
+            </md-option>
+        </md-select>
+        <md-input-container flex="grow" md-auto-hide="true" md-no-float="true">
+            <input type="text" placeholder="Default name ({{lang}})" required ng-model="name.content">
+            <div ng-messages="userForm.lastName.$error" ng-show="false">
+            </div>
+        </md-input-container>
+        <i tabindex="-1" class="fa fa-times action-remove" ng-click="removeName(name)"></i>
+    </div>
+
+    <div layout="row">
+        <h5 flex="auto">Categories</h5>
+        <a class="link-add" href="" ng-click="addCategory()">add a category</a>
+    </div>
+    <div layout="row" ng-repeat="category in categories">
+        <md-input-container flex="auto" md-auto-hide="true" md-no-float="true">
+            <input select-on-click="true"
+                   class="type-ahead-input"
+                   type="text"
+                   ng-model="category.searchText"
+                   placeholder="Category"
+                   uib-typeahead="curItems as curItems.item.name.en for curItems in autoComplete(category)"
+                   typeahead-on-select="onItemSelect($item, $model, $label, category)"
+                   typeahead-wait-ms="10"
+                   class="form-control search-field">
+            <div ng-messages="userForm.lastName.$error" ng-show="false">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </md-input-container>
+
+        <!--<input type="text" ng-model="content" ng-click="onTextClick($event)" />-->
+
+
+        <!--<md-input-container flex="auto" md-auto-hide="true" md-no-float="true">-->
+            <!--<input type="text" placeholder="Category" required ng-model="category.name.en">-->
+            <!--<div ng-messages="userForm.lastName.$error" ng-show="false">-->
+                <!--<div ng-message="required">This is required!</div>-->
+                <!--<div ng-message="md-maxlength">That's too long!</div>-->
+                <!--<div ng-message="minlength">That's too short!</div>-->
+            <!--</div>-->
+        <!--</md-input-container>-->
+        <i tabindex="-1" class="fa fa-times action-remove" ng-click="removeCategory(category)"></i>
+    </div>
+
+    <div layout="row">
+        <h5 flex="auto">Parent dimensions</h5>
+        <a class="link-add" href="" ng-click="addParent()">add a parent dimension</a>
+    </div>
+    <div layout="row" ng-repeat="parent in item.parents">
+        <md-input-container flex="auto" md-auto-hide="true" md-no-float="true">
+
+
+            <input type="text" placeholder="Parent dimensions" required ng-model="parent.name.en">
+            <div ng-messages="userForm.lastName.$error" ng-show="false">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </md-input-container>
+        <i class="fa fa-times action-remove"></i>
+    </div>
+
+    <div layout="row">
+        <h5 flex="auto">Descriptions</h5>
+        <a class="link-add" href="" ng-click="addDescription()">add a description</a>
+    </div>
+    <div layout="row" ng-repeat="description in descriptions">
+        <i style="color: #D4534F" class="fa fa-times action-star"></i>
+        <md-select class="lang-select" aria-label="language for the description" flex="5" ng-model="name.lang">
+            <md-option ng-repeat="lang in languages" value="{{lang}}">
+                {{lang}}
+            </md-option>
+        </md-select>
+        <md-input-container flex="grow" md-auto-hide="true" md-no-float="true">
+            <input type="text" placeholder="Description" required ng-model="description.content">
+            <div ng-messages="userForm.lastName.$error" ng-show="false">
+            </div>
+        </md-input-container>
+    </div>
+
+    <h5>Metadata</h5>
+    <div ng-repeat="(key, value) in item.meta">
+        {{key}}: {{value}}
+    </div>
+
+    <h5>Sources</h5>
+    <div ng-repeat="source in item.sources">
+        {{source.name}}
+    </div>
+</div>

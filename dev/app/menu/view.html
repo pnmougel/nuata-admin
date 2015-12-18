@@ -1,0 +1,29 @@
+<div layout="row" class="admin-main-container">
+    <div flex="15" class="admin-menu" style="min-height: 100%;">
+        <div class="admin-app-title" style="background-color: #2F4050; color: #fff;">
+            <span style="font-family: 'Questrial', sans-serif;">Nuata</span>
+
+            <div style="font-size: 16px;">Data for people</div>
+        </div>
+        <ul >
+            <li ng-class="menuItem.class" ng-repeat="menuItem in menu" ng-click="selectItem(menuItem)" >
+                <a >
+                    <i ng-class="menuItem.icon"></i>
+                    {{menuItem.label}}
+                </a>
+                <ul ng-show="menuItem === curMenuItem && menuItem.children.length" class="submenu-container">
+                    <li class="submenu-item" ng-repeat="childItem in menuItem.children">
+                        <a ng-click="selectItem(menuItem, childItem)" >
+                            {{childItem.label}}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div flex="85" class="admin-content">
+        <div class="row">
+            <div data-ui-view=""></div>
+        </div>
+    </div>
+</div>

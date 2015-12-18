@@ -1,0 +1,76 @@
+@import "../../../scss/colors";
+
+.items-header {
+  margin-top: 20px;
+  .items-header-title {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.item {
+  margin: 5px 0;
+  padding: 3px;
+  border: 1px solid #EEE;
+
+  .item-name {
+    cursor: pointer;
+  }
+
+  .item-lang {
+    cursor: pointer;
+  }
+
+  .item-description {
+    font-size: 80%;
+  }
+}
+
+.item:hover {
+  border: 1px solid blue;
+}
+
+.lbl {
+  border-radius: 3px;
+  margin-right: 3px;
+  text-align: center;
+  display: inline-block;
+  padding: .1em .6em .2em;
+  font-size: 75%;
+  font-weight: bold;
+}
+
+@mixin colored-label($color) {
+  @extend .lbl;
+  color: $color;
+  background-color: #fff;
+  border: 1px solid $color;
+}
+@mixin colored-label-selected($color) {
+  @extend .lbl;
+  color: #fff;
+  background-color: $color;
+  border: 1px solid $color;
+}
+
+$kind-colors: $info, $alert, $warning, $default, $primary, $success;
+$kinds: "info", "alert", "warning", "default", "primary", "success";
+
+@for $i from 1 through 6 {
+  $kindName: nth($kinds, $i);
+  $kindColor: nth($kind-colors, $i);
+  .lbl-#{$kindName} { @include colored-label($kindColor); }
+  .lbl-#{$kindName}-selected { @include colored-label-selected($kindColor); }
+}
+
+.clickable {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

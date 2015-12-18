@@ -1,0 +1,43 @@
+<div class="container-fluid full-height">
+
+    <div class="col-xs-3" >
+        <button class="btn" ng-click="toggleShowJson()">Show json</button>
+        <button class="btn" ng-click="index()">Send query</button>
+        <button class="btn" ng-click="initDb()">Init</button>
+
+        <div  class="items-header"><span class="items-header-title">Categories</span> ({{query.categories.length}})
+            <input type="text" class="form-control input-sm" placeholder="Search item..." ng-model="queryOptions.categories.filter"/>
+        </div>
+        <h6>Filter by status :</h6>
+        <span ng-repeat="status in statuses"
+              ng-click="filterByStatus(status, 'categories')"
+              class="lbl-{{status.kind}}{{queryOptions.categories.selectedStatuses[status.name] ? '-selected' : ''}} clickable">{{status.name}}</span>
+
+
+        <p>Select all for doing bulk actions such as ??</p>
+
+        <p>Choose language for all items</p>
+
+        <p>Select by category when dimension or unit when ooi</p>
+    </div>
+
+    <div class="col-xs-6">
+        <div ng-show="showJson">
+            <div ng-change="jsonUpdated()" ng-model="rawJson" ui-ace="aceOptions" style="height: 400px"></div>
+        </div>
+        <div ng-hide="showJson">
+            <item-header name="Categories" options="queryOptions.categories" items="query.categories"></item-header>
+            <div ng-show="queryOptions.categories.visible" ng-repeat="category in data.categories | filter:queryOptions.categories.filter">
+                <category item="category" options="queryOptions.categories" references="references"></category>
+            </div>
+
+            <item-header name="Dimensions" options="queryOptions.dimensions" items="query.dimensions"></item-header>
+            <div ng-show="queryOptions.dimensions.visible"  ng-repeat="dimension in data.dimensions | filter:queryOptions.dimensions.filter">
+                <category item="dimension" options="queryOptions.categories" references="references"></category>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+
+    </div>
+</div>

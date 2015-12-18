@@ -58,6 +58,13 @@ App.run(function ($rootScope) {
         });
         return { item: curItem, min: curValue };
     };
+
+    Array.prototype.remove = function (item) {
+        var idx = this.indexOf(item);
+        if(idx != -1) {
+            this.splice(idx, 1);
+        }
+    };
 });
 
 App.config(function ($httpProvider) {
