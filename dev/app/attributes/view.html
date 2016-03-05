@@ -1,0 +1,41 @@
+<page-title label="Attributes"></page-title>
+
+<block title="'Search'">
+    <md-content>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Name</label>
+                <input ng-model="filter.name" placeholder="Leave empty for all" ng-change="getItems()">
+            </md-input-container>
+
+            <md-select ng-change="getItems()" ng-model="filter.valueType" placeholder="data type" flex="10">
+                <md-option ng-value="''">All data types</md-option>
+                <md-option ng-value="valueType" ng-repeat="valueType in dataTypes">{{valueType}}</md-option>
+            </md-select>
+
+            <md-autocomplete ng-repeat="mapping in dependencies" flex="25"
+                             md-selected-item="mapping.selectedItem"
+                             md-selected-item-change="updateFilter(mapping)"
+                             md-search-text-change="autoCompleteTextChange(mapping)"
+                             md-search-text="mapping.searchText"
+                             md-items="item in autoComplete(mapping)"
+                             md-autoselect="true"
+                             md-item-text="item.name[curLang]"
+                             md-floating-label="{{mapping.label}}"
+                             md-placeholder="Leave empty for all">
+                <span md-highlight-text="mapping.searchText">{{item.name[curLang]}}</span>
+            </md-autocomplete>
+        </div>
+    </md-content>
+</block>
+
+<uib-pagination
+        flex=""
+        style="margin: 0 0 5px 0;"
+        ng-change="pageChanged()" class="pagination-sm" boundary-links="true"
+        total-items="nbItems" ng-model="filter.page" max-size="10" items-per-page="filter.limit"
+        previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+    <span style="position: relative;top: 5px;float: right;">{{nbItems | number}} results</span>
+</div>
+
+<attribute item="item" ng-repeat="item in items"></attribute>

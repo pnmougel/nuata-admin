@@ -10,7 +10,7 @@ App.controller('MenuCtrl', function ($scope, $state) {
     params: {},
     children: []
   },{
-    label: 'Dimensions',
+    label: 'Items',
     icon: 'fa fa-cube',
     state: 'app.items',
     params: {
@@ -18,11 +18,11 @@ App.controller('MenuCtrl', function ($scope, $state) {
     },
     children: []
   },{
-    label: 'Categories',
+    label: 'Attributes',
     icon: 'fa fa-tags',
-    state: 'app.items',
+    state: 'app.attributes',
     params: {
-      type: 'category'
+      type: 'attributes'
     },
     children: []
   },{
@@ -59,7 +59,7 @@ App.controller('MenuCtrl', function ($scope, $state) {
     $state.go(item.state, item.params)
   };
 
-  $scope.selectItem($scope.menu[0]);
+  $scope.selectItem($scope.menu[2]);
 
   //$scope.backgroundImageStyle = 'background-image: url(' + Trianglify({
   //  cell_size: 160,

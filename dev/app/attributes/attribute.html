@@ -1,0 +1,47 @@
+<block class="attribute">
+    <div>
+        <div layout="row">
+            <div flex="80">
+                <div class="name">
+                    <span style="color: red;" ng-hide="item.labels[curLang].name">Missing name</span>
+                    {{item.labels[curLang].name}}
+                </div>
+                <div class="description">
+                    <span style="color: red;" ng-hide="item.labels[curLang].description">Missing description</span>
+                    {{item.labels[curLang].description}}
+                </div>
+                <div class="aliases">
+                    <span ng-repeat="alias in item.labels[curLang].aliases">{{alias}}</span>
+                </div>
+                <div class="instancesOf">
+                    <span>Instance of: </span>
+                    <span ng-repeat="instanceOf in item.instancesOf">{{instanceOf}} - </span>
+                </div>
+                <div class="subclassesOf">
+                    <span>Subclass of: </span>
+                    <span ng-repeat="subclassOf in item.subclassesOf">{{subclassOf}} - </span>
+                </div>
+            </div>
+            <div flex="auto" style="text-align: right;">
+                <div>
+                    <a ng-click="setLang(lang)" style="margin-left: 5px;" href="" ng-repeat="lang in langs">{{lang}}</a>
+                </div>
+                <div ng-hide="item.expand" class="itemId" data-clipboard-text="{{item._id}}" >
+                    {{item._id}}
+                </div>
+                <div>
+                    {{item.valueType}}
+                </div>
+            </div>
+        </div>
+        <div>
+            <div ng-repeat="(valueType, edges) in item.edges">
+                <h4>{{valueType}}</h4>
+                <edge-value value-type="valueType" edge="edge" ng-repeat="edge in edges"></edge-value>
+                <!--<pre>{{edges | json}}</pre>-->
+            </div>
+            <!--<pre>{{item | json}}</pre>-->
+        </div>
+    </div>
+    <!--<item item="item"></item>-->
+</block>

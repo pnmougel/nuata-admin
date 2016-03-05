@@ -6,7 +6,7 @@ node_modules/
 /.idea
 .directory
 gulp_tasks/sshConfig.js
-dev/css
+dev/css/*.css
 .sass-cache/
 **/.sass-cache/
 /**/.sass-cache/

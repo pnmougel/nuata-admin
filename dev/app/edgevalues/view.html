@@ -1,0 +1,10 @@
+<div>
+
+    <span style="font-weight: bold;">{{attributeName.name}}: </span>
+    <!--<span style="font-weight: bold;">{{edge.attributeId}}: </span>-->
+    <text ng-if="valueType == 'texts'" value="edge.value"></text>
+    <url ng-if="valueType == 'urls'" value="edge.value"></url>
+    <external-id ng-if="valueType == 'externalIds'" value="edge.value"></external-id>
+    <item-ref ng-if="valueType == 'items'" value="edge.value"></item-ref>
+    <attribute-ref ng-if="valueType == 'attributes'" value="edge.value"></attribute-ref>
+</div>

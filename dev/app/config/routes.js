@@ -13,7 +13,7 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
 
         // default route
         // $urlRouterProvider.otherwise('app/dashboard');
-        $urlRouterProvider.otherwise('app/items');
+        $urlRouterProvider.otherwise('app/attributes');
 
         $stateProvider
             .state('app', {
@@ -38,6 +38,12 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 templateUrl: 'app/item/view.html',
                 controller: 'ItemCtrl',
                 params: { id: null, type: null }
+            })
+            .state('app.attributes', {
+                url: '/attributes',
+                templateUrl: 'app/attributes/view.html',
+                controller: 'AttributesCtrl',
+                params: { type: null }
             })
             .state('app.updates', {
                 url: '/updates',

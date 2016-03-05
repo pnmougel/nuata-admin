@@ -1,0 +1,30 @@
+.attribute {
+  .name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .description {
+    font-size: 13px;
+  }
+  .aliases {
+    font-size: 13px;
+  }
+}
+
+.itemId {
+  cursor: pointer;
+}
+
+.lang {
+  //display: inline-block;
+  max-height: 17px;
+  margin-top: 10px;
+  color: #337AB7;
+  border: 1px solid #337AB7;
+  border-radius: 2px;
+  padding: 2px 5px 1px 5px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 8px;
+  margin-right: 0px;
+}

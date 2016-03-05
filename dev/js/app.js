@@ -67,12 +67,61 @@ App.factory('Nuata', function($resource, ServerUrl) {
 });
 
 "use strict";
+App.controller('AttributesCtrl', function($scope, $stateParams, Attributes, DataTypes) {
+  var resource = Attributes;
+  $scope.languages = ['en', 'fr'];
+  $scope.curLang = 'en';
+  $scope.currentPage = 1;
+  $scope.filter = {
+    name: '',
+    page: 1,
+    limit: 5,
+    valueType: ''
+  };
+  $scope.pageChanged = function() {
+    $scope.filter.start = ($scope.filter.page - 1) * ($scope.filter.limit);
+    $scope.getItems();
+  };
+  DataTypes.query().$promise.then(function(dataTypes) {
+    $scope.dataTypes = dataTypes;
+  });
+  $scope.getItems = function() {
+    resource.search($scope.filter).$promise.then(function(res) {
+      $scope.nbItems = res.nbItems;
+      $scope.items = res.items;
+    });
+  };
+  $scope.clipboard = new Clipboard('.itemId');
+  $scope.getItems();
+});
+
+"use strict";
+App.directive('attribute', function(Names) {
+  return {
+    restrict: 'E',
+    scope: {item: '='},
+    link: function(scope) {
+      scope.curLang = 'en';
+      scope.langs = [];
+      for (var lang in scope.item.labels) {
+        scope.langs.push(lang.trim());
+      }
+      scope.setLang = function(lang) {
+        scope.curLang = lang;
+      };
+      Names.getAttributeNames(scope.item.attributeIds, scope.curLang).then(function(names) {});
+    },
+    templateUrl: 'app/attributes/attribute.html'
+  };
+});
+
+"use strict";
 App.constant('ServerUrl', 'http://localhost:9000');
 
 "use strict";
 App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
   'use strict';
-  $urlRouterProvider.otherwise('app/items');
+  $urlRouterProvider.otherwise('app/attributes');
   $stateProvider.state('app', {
     abstract: true,
     url: '/app',
@@ -95,6 +144,11 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', functio
       id: null,
       type: null
     }
+  }).state('app.attributes', {
+    url: '/attributes',
+    templateUrl: 'app/attributes/view.html',
+    controller: 'AttributesCtrl',
+    params: {type: null}
   }).state('app.updates', {
     url: '/updates',
     templateUrl: 'app/updates/view.html',
@@ -121,6 +175,23 @@ App.directive('selectOnClick', ['$window', function($window) {
     }
   };
 }]);
+
+"use strict";
+App.directive('edgeValue', function(Names) {
+  return {
+    restrict: 'E',
+    scope: {
+      edge: '=',
+      valueType: '='
+    },
+    link: function(scope) {
+      Names.getAttributeNames([scope.edge.attributeId], 'en').then(function(names) {
+        scope.attributeName = names[scope.edge.attributeId];
+      });
+    },
+    templateUrl: 'app/edgevalues/view.html'
+  };
+});
 
 "use strict";
 App.controller('ItemCtrl', function($scope, $stateParams, Dimensions, Oois, Units, Categories) {
@@ -280,16 +351,16 @@ App.controller('MenuCtrl', function($scope, $state) {
     params: {},
     children: []
   }, {
-    label: 'Dimensions',
+    label: 'Items',
     icon: 'fa fa-cube',
     state: 'app.items',
     params: {type: 'dimension'},
     children: []
   }, {
-    label: 'Categories',
+    label: 'Attributes',
     icon: 'fa fa-tags',
-    state: 'app.items',
-    params: {type: 'category'},
+    state: 'app.attributes',
+    params: {type: 'attributes'},
     children: []
   }, {
     label: 'Objects of interest',
@@ -318,7 +389,7 @@ App.controller('MenuCtrl', function($scope, $state) {
     $scope.curMenuItem = item;
     $state.go(item.state, item.params);
   };
-  $scope.selectItem($scope.menu[0]);
+  $scope.selectItem($scope.menu[2]);
   $scope.backgroundImageStyle = 'background: #233646';
 });
 
@@ -557,6 +628,34 @@ App.factory('Unit', function(Status) {
 });
 
 "use strict";
+App.factory('Attributes', function($resource, ServerUrl) {
+  return $resource(ServerUrl + '/', {}, {
+    index: {
+      method: 'POST',
+      url: ServerUrl + '/attribute/index'
+    },
+    match: {
+      method: 'POST',
+      url: ServerUrl + '/attribute/list',
+      isArray: true
+    },
+    get: {
+      method: 'GET',
+      url: ServerUrl + '/attribute/:id'
+    },
+    search: {
+      method: 'GET',
+      url: ServerUrl + '/attribute/search'
+    },
+    names: {
+      method: 'GET',
+      url: ServerUrl + '/attribute/name',
+      isArray: true
+    }
+  });
+});
+
+"use strict";
 App.factory('Categories', function($resource, ServerUrl) {
   return $resource(ServerUrl + '/', {}, {
     index: {
@@ -582,6 +681,11 @@ App.factory('Categories', function($resource, ServerUrl) {
       url: ServerUrl + '/category/search'
     }
   });
+});
+
+"use strict";
+App.factory('DataTypes', function($resource, ServerUrl) {
+  return $resource(ServerUrl + '/datatypes');
 });
 
 "use strict";
@@ -712,6 +816,49 @@ App.factory('ItemConfig', function(Dimensions, Categories, Units, Oois) {
       singular: 'Object of interest',
       plural: 'Objects of interest',
       mappings: {}
+    }
+  };
+});
+
+"use strict";
+App.factory('Names', function(Attributes) {
+  return {
+    cache: {
+      attribute: {},
+      item: {}
+    },
+    getAttributeNames: function(ids, lang) {
+      return this.getNames(ids, 'attribute', lang);
+    },
+    getItemNames: function(ids, lang) {
+      return this.getNames(ids, 'item', lang);
+    },
+    getNames: function(ids, type, lang) {
+      var that = this;
+      var typeCache = that.cache[type];
+      var repository = type == 'attribute' ? Attributes : Attributes;
+      var idsToSearch = [];
+      var idToLabel = {};
+      ids.forEach(function(id) {
+        if (id in typeCache && lang in typeCache[id]) {
+          idToLabel = typeCache[id][lang];
+        } else {
+          idsToSearch.push(id);
+        }
+      });
+      return repository.names({id: idsToSearch}).$promise.then(function(labels) {
+        labels.forEach(function(label) {
+          if (!(label.id in typeCache)) {
+            typeCache[label.id] = {};
+          }
+          typeCache[label.id][lang] = {
+            name: label.name,
+            description: label.description
+          };
+          idToLabel[label.id] = typeCache[label.id][lang];
+        });
+        return idToLabel;
+      });
     }
   };
 });
@@ -1088,6 +1235,51 @@ App.directive('tag', function() {
       onDelete: '='
     },
     templateUrl: 'app/components/tag/view.html'
+  };
+});
+
+"use strict";
+App.directive('attributeRef', function() {
+  return {
+    restrict: 'E',
+    scope: {value: '='},
+    templateUrl: 'app/edgevalues/attributeRef/view.html'
+  };
+});
+
+"use strict";
+App.directive('externalId', function() {
+  return {
+    restrict: 'E',
+    scope: {value: '='},
+    templateUrl: 'app/edgevalues/externalId/view.html'
+  };
+});
+
+"use strict";
+App.directive('itemRef', function() {
+  return {
+    restrict: 'E',
+    scope: {value: '='},
+    templateUrl: 'app/edgevalues/itemRef/view.html'
+  };
+});
+
+"use strict";
+App.directive('text', function() {
+  return {
+    restrict: 'E',
+    scope: {value: '='},
+    templateUrl: 'app/edgevalues/text/view.html'
+  };
+});
+
+"use strict";
+App.directive('url', function() {
+  return {
+    restrict: 'E',
+    scope: {value: '='},
+    templateUrl: 'app/edgevalues/url/view.html'
   };
 });
 
