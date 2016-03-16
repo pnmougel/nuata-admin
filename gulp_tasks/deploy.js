@@ -7,8 +7,11 @@ var gulpSSH = new GulpSSH({
     sshConfig: sshConfig
 });
 
+gulp.task('sendToServer', function () {
+
+});
+
 gulp.task('deploy', function () {
-    return gulpSSH
-        .shell(['cd votcast-lp', './update.sh'], {filePath: 'commands.log'})
-        .pipe(gulp.dest('logs'))
+    return gulp.src(['www/**', '!./www/fonts/*'])
+        .pipe(gulpSSH.dest('/home/nico/nuata-admin/'))
 });

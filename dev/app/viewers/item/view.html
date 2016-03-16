@@ -1,0 +1,16 @@
+<block title="title">
+    <div layout="row">
+        <div flex="grow">
+            <div style="font-weight: bold;">
+                <text-field placeholder="'Viewer name'" field-name="'name'" value="item.name" updated="item.nameUpdated" on-update="onUpdate"></text-field>
+            </div>
+            <div>
+                <text-field placeholder="'Viewer description'" field-name="'description'" value="item.description" updated="item.descriptionUpdated" on-update="onUpdate"></text-field>
+            </div>
+        </div>
+        <div>
+            <md-button ng-click="delete()">DELETE</md-button>
+        </div>
+    </div>
+
+</block>

@@ -41,13 +41,23 @@ App.directive('item', function(ItemConfig) {
         });
       });
 
+
+      // Build the categories
+      scope.parents = [];
+      scope.item.parents.forEach(function (parent) {
+        scope.parents.push({
+          item: parent,
+          searchText: parent.name.en
+        });
+      });
+
       // Build the descriptions
       scope.descriptions = [];
       scope.languages.forEach(function (lang) {
         if(lang in scope.item.description) {
           scope.descriptions.push({
             lang: lang,
-            content: scope.item.description[lang]
+            content: scope.item.description[lang],
           })
         }
       });
@@ -55,24 +65,24 @@ App.directive('item', function(ItemConfig) {
       scope.addName = function () {
         scope.names.push({lang: '', content: '', isDefault: false})
       };
-      scope.removeName = function (name) {
-        if(!name.isDefault) {
-          scope.names.remove(name);
-        }
-      };
+
       scope.addDescription = function () {
         scope.descriptions.push({lang: '', content: ''});
       };
 
       scope.addCategory = function () {
-        scope.categories.push({})
-      };
-      scope.removeCategory = function (category) {
-        scope.categories.remove(category);
+        scope.categories.push({
+          hasFocus: true
+        })
+
       };
 
-      scope.autoComplete = function (foo) {
-        return ItemConfig.category.resource.find({ name: foo.searchText }).$promise.then(function (items) {
+      scope.removeItem = function (item, kind) {
+        scope[kind].remove(item);
+      };
+
+      scope.autoComplete = function (item, kind) {
+        return ItemConfig[kind].resource.find({ name: item.searchText }).$promise.then(function (items) {
           return items.items.map(function (item) {
             return {
               item: item,
@@ -84,7 +94,7 @@ App.directive('item', function(ItemConfig) {
       scope.onItemSelect = function (item, model, label, category) {
         category.item = item.item;
         category.searchText = item.searchText;
-      }
+      };
 
       scope.onTextClick = function ($event) {
         $event.target.select();

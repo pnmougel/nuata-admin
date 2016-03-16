@@ -1,8 +1,6 @@
 <div class="item">
-    <!--<md-button ng-click="printItem()">Update</md-button>-->
-
     <div layout="row">
-        <h5 flex="auto">Names</h5>
+        <h5 flex="auto" style="padding-top: 0; margin-top: 0;">Names</h5>
         <a class="link-add" href="" ng-click="addName()">add a name</a>
     </div>
     <div layout="row" ng-repeat="name in names">
@@ -17,7 +15,7 @@
             <div ng-messages="userForm.lastName.$error" ng-show="false">
             </div>
         </md-input-container>
-        <i tabindex="-1" class="fa fa-times action-remove" ng-click="removeName(name)"></i>
+        <i tabindex="-1" class="fa fa-times action-remove" ng-click="removeItem(name, 'names')"></i>
     </div>
 
     <div layout="row">
@@ -31,7 +29,7 @@
                    type="text"
                    ng-model="category.searchText"
                    placeholder="Category"
-                   uib-typeahead="curItems as curItems.item.name.en for curItems in autoComplete(category)"
+                   uib-typeahead="curItems as curItems.item.name.en for curItems in autoComplete(category, 'category')"
                    typeahead-on-select="onItemSelect($item, $model, $label, category)"
                    typeahead-wait-ms="10"
                    class="form-control search-field">
@@ -41,37 +39,31 @@
                 <div ng-message="minlength">That's too short!</div>
             </div>
         </md-input-container>
-
-        <!--<input type="text" ng-model="content" ng-click="onTextClick($event)" />-->
-
-
-        <!--<md-input-container flex="auto" md-auto-hide="true" md-no-float="true">-->
-            <!--<input type="text" placeholder="Category" required ng-model="category.name.en">-->
-            <!--<div ng-messages="userForm.lastName.$error" ng-show="false">-->
-                <!--<div ng-message="required">This is required!</div>-->
-                <!--<div ng-message="md-maxlength">That's too long!</div>-->
-                <!--<div ng-message="minlength">That's too short!</div>-->
-            <!--</div>-->
-        <!--</md-input-container>-->
-        <i tabindex="-1" class="fa fa-times action-remove" ng-click="removeCategory(category)"></i>
+        <i tabindex="-1" class="fa fa-times action-remove" ng-click="removeItem(category, 'categories')">{{category.hasFocus}}</i>
     </div>
 
     <div layout="row">
         <h5 flex="auto">Parent dimensions</h5>
         <a class="link-add" href="" ng-click="addParent()">add a parent dimension</a>
     </div>
-    <div layout="row" ng-repeat="parent in item.parents">
+    <div layout="row" ng-repeat="parent in parents">
         <md-input-container flex="auto" md-auto-hide="true" md-no-float="true">
-
-
-            <input type="text" placeholder="Parent dimensions" required ng-model="parent.name.en">
+            <input select-on-click="true"
+                   class="type-ahead-input"
+                   type="text"
+                   ng-model="parent.searchText"
+                   placeholder="Parent dimension"
+                   uib-typeahead="curItems as curItems.item.name.en for curItems in autoComplete(parent, 'dimension')"
+                   typeahead-on-select="onItemSelect($item, $model, $label, parent)"
+                   typeahead-wait-ms="10"
+                   class="form-control search-field">
             <div ng-messages="userForm.lastName.$error" ng-show="false">
                 <div ng-message="required">This is required!</div>
                 <div ng-message="md-maxlength">That's too long!</div>
                 <div ng-message="minlength">That's too short!</div>
             </div>
         </md-input-container>
-        <i class="fa fa-times action-remove"></i>
+        <i tabindex="-1" class="fa fa-times action-remove" ng-click="removeItem(parent, 'parents')"></i>
     </div>
 
     <div layout="row">

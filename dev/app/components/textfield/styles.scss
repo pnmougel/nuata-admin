@@ -1,0 +1,46 @@
+.text-field {
+  input {
+    border-width: 0px;
+    border-bottom: 2px solid white;
+    padding: 2px;
+    outline: none;
+  }
+
+  input.updated {
+    border-bottom: 2px solid #00A0B0;
+  }
+
+  input:hover {
+    border-bottom: 2px solid rgb(63, 81, 181);
+  }
+
+  input:focus {
+    border-bottom: 2px solid rgb(63, 81, 181);
+  }
+
+  input.updated:hover {
+    border-bottom: 2px solid #00A0B0;
+  }
+
+  input.updated:focus {
+    border-bottom: 2px solid #00A0B0;
+  }
+}
+
+//input.text-field {
+//  border: 0px solid red;
+//  border-bottom: 2px solid white;
+//
+//  .updated {
+//
+//  }
+//}
+//
+//
+//
+//input.text-field:hover {
+//
+//  .updated {
+//    border-bottom: 1px solid red;
+//  }
+//}

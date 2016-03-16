@@ -3,11 +3,20 @@
     font-size: 14px;
     font-weight: bold;
   }
-  .description {
+  .properties {
     font-size: 13px;
   }
-  .aliases {
-    font-size: 13px;
+  .value-type i {
+    color: #CC333F;
+  }
+  .description i {
+    color: #00A0B0;
+  }
+  .aliases i {
+    color: #EB6841;
+  }
+  .instance-of i {
+    color: #6A4A3C;
   }
 }
 

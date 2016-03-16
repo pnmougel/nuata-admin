@@ -9,7 +9,7 @@ var concat = require('gulp-concat');
 require('./gulp_tasks/auto-include');
 require('./gulp_tasks/auto-prefixer');
 require('./gulp_tasks/deploy');
-require('./gulp_tasks/sass');
+//require('./gulp_tasks/sass');
 require('./gulp_tasks/build');
 gulp.task('connect', function () {
     connect.server({
@@ -38,7 +38,7 @@ gulp.task('default', ['connect', 'watch']);
 gulp.task('watch', function () {
     gulp.watch('dev/app/**/*.html', ['ai', 'reload']);
     gulp.watch('dev/app/**/*.js', ['buildEs5', 'ai', 'reload']);
-    gulp.watch(['dev/**/*.scss', 'scss/*.scss'], ['sass']);
+    //gulp.watch(['dev/**/*.scss', 'scss/*.scss'], ['sass']);
     gulp.watch('dev/css/main.css', ['ai', 'reload']);
     gulp.watch('dev/lib/**/.js', ['ai', 'reload']);
     gulp.watch('bower.json', ['ai']);

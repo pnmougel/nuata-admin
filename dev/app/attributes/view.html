@@ -1,11 +1,24 @@
-<page-title label="Attributes"></page-title>
+<page-title label="'Attributes'"></page-title>
 
 <block title="'Search'">
     <md-content>
         <div layout="row">
             <md-input-container flex>
                 <label>Name</label>
-                <input ng-model="filter.name" placeholder="Leave empty for all" ng-change="getItems()">
+                <input
+                        ng-model="filter.name"
+                        placeholder="Leave empty for all"
+                        ng-model-options="{debounce: 200}"
+                        ng-change="getItems()">
+            </md-input-container>
+
+            <md-input-container flex="20">
+                <label>Instance of</label>
+                <input
+                        ng-model="filter.instanceOf"
+                        placeholder="Leave empty for all"
+                        ng-model-options="{debounce: 200}"
+                        ng-change="getItems()">
             </md-input-container>
 
             <md-select ng-change="getItems()" ng-model="filter.valueType" placeholder="data type" flex="10">
@@ -13,18 +26,19 @@
                 <md-option ng-value="valueType" ng-repeat="valueType in dataTypes">{{valueType}}</md-option>
             </md-select>
 
-            <md-autocomplete ng-repeat="mapping in dependencies" flex="25"
-                             md-selected-item="mapping.selectedItem"
-                             md-selected-item-change="updateFilter(mapping)"
-                             md-search-text-change="autoCompleteTextChange(mapping)"
-                             md-search-text="mapping.searchText"
-                             md-items="item in autoComplete(mapping)"
-                             md-autoselect="true"
-                             md-item-text="item.name[curLang]"
-                             md-floating-label="{{mapping.label}}"
-                             md-placeholder="Leave empty for all">
-                <span md-highlight-text="mapping.searchText">{{item.name[curLang]}}</span>
-            </md-autocomplete>
+
+            <!--<md-autocomplete ng-repeat="mapping in dependencies" flex="25"-->
+                             <!--md-selected-item="mapping.selectedItem"-->
+                             <!--md-selected-item-change="updateFilter(mapping)"-->
+                             <!--md-search-text-change="autoCompleteTextChange(mapping)"-->
+                             <!--md-search-text="mapping.searchText"-->
+                             <!--md-items="item in autoComplete(mapping)"-->
+                             <!--md-autoselect="true"-->
+                             <!--md-item-text="item.name[curLang]"-->
+                             <!--md-floating-label="{{mapping.label}}"-->
+                             <!--md-placeholder="Leave empty for all">-->
+                <!--<span md-highlight-text="mapping.searchText">{{item.name[curLang]}}</span>-->
+            <!--</md-autocomplete>-->
         </div>
     </md-content>
 </block>

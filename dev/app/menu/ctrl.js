@@ -20,19 +20,16 @@ App.controller('MenuCtrl', function ($scope, $state) {
   },{
     label: 'Attributes',
     icon: 'fa fa-tags',
-    state: 'app.attributes',
-    params: {
-      type: 'attributes'
-    },
-    children: []
+    state: 'app.attributes'
   },{
-    label: 'Objects of interest',
+    label: 'Viewers',
     icon: 'fa fa-bullseye',
-    state: 'app.items',
-    params: {
-      type: 'ooi'
-    },
-    children: []
+    state: 'app.viewers',
+    children: [{
+      label: 'Add new',
+      icon: 'fa fa-bullseye',
+      state: 'app.viewers'
+    }]
   },{
     label: 'Units',
     icon: 'fa fa-balance-scale',
@@ -59,12 +56,7 @@ App.controller('MenuCtrl', function ($scope, $state) {
     $state.go(item.state, item.params)
   };
 
-  $scope.selectItem($scope.menu[2]);
+  $scope.selectItem($scope.menu[3]);
 
-  //$scope.backgroundImageStyle = 'background-image: url(' + Trianglify({
-  //  cell_size: 160,
-  //  variance: 0.4,
-  //  seed: '22g1b',
-  //  x_colors: ['#666666', '#233646', '#283C4C']}).png() + ');'
   $scope.backgroundImageStyle = 'background: #233646';
 });

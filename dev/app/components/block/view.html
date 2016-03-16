@@ -1,4 +1,6 @@
 <div class="block col-xs-{{width}}" style="background-color: {{color}}; border: 1px solid {{borderColor}};">
-    <div class="block-title">{{title}}</div>
-    <div ng-transclude></div>
+    <div class="block-title" layout="row">
+        <span ng-click="toggle()" flex="grow">{{title}}</span>
+    </div>
+    <div ng-show="isExpanded" ng-transclude></div>
 </div>

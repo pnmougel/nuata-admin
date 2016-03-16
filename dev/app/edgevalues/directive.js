@@ -11,7 +11,6 @@ App.directive('edgeValue', function(Names) {
         link: function(scope) {
             Names.getAttributeNames([scope.edge.attributeId], 'en').then(function (names) {
                 scope.attributeName = names[scope.edge.attributeId];
-                //scope.attributeNames = names;
             })
         },
         templateUrl: 'app/edgevalues/view.html'

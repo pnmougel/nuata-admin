@@ -6,12 +6,25 @@ App.directive('block', function() {
       title: '=',
       width: '=',
       color: '=',
-      borderColor: '='
+      borderColor: '=',
+      collapsible: '='
     },
-    templateUrl: 'app/components/block/view.html',
-    compile: function(element, attrs){
-      if (!attrs.width) { attrs.width = 12; }
-      if (!attrs.borderColor) { attrs.borderColor = '\"rgb(255, 255, 255)\"'; }
-    }
+    link: function (scope) {
+      if(!scope.width) {
+        scope.width = 12
+      }
+      if(!scope.borderColor) {
+        scope.borderColor = '\"rgb(255, 255, 255)\"'
+      }
+      scope.isExpanded = true;
+      scope.toggle = function() {
+        scope.isExpanded = !scope.isExpanded;
+      }
+    },
+    templateUrl: 'app/components/block/view.html'
+    //compile: function(element, attrs){
+    //  if (!attrs.width) { attrs.width = 12; }
+    //  if (!attrs.borderColor) { attrs.borderColor = '\"rgb(255, 255, 255)\"'; }
+    //}
   };
 });

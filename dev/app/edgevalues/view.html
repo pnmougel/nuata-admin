@@ -1,8 +1,12 @@
 <div>
-    <span style="font-weight: bold;">{{attributeName.name}}: </span>
-    <text ng-if="valueType == 'texts'" value="edge.value"></text>
-    <url ng-if="valueType == 'urls'" value="edge.value"></url>
-    <external-id ng-if="valueType == 'externalIds'" value="edge.value"></external-id>
-    <item-ref ng-if="valueType == 'items'" value="edge.value"></item-ref>
-    <attribute-ref ng-if="valueType == 'attributes'" value="edge.value"></attribute-ref>
+    <span style="font-weight: bold;">{{attributeName.name}}:
+        <md-tooltip md-delay="100" md-direction="left">
+            {{edge.attributeId}}
+        </md-tooltip>
+    </span>
+    <text ng-if="valueType == 'text'" value="edge.value"></text>
+    <url ng-if="valueType == 'url'" value="edge.value"></url>
+    <external-id ng-if="valueType == 'externalId'" value="edge.value"></external-id>
+    <item-ref ng-if="valueType == 'itemRef'" value="edge.value"></item-ref>
+    <attribute-ref ng-if="valueType == 'attributeRef'" value="edge.value"></attribute-ref>
 </div>

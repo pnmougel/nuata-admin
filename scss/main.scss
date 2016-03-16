@@ -2,7 +2,7 @@
 @import "../dev/lib/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../dev/lib/components-font-awesome/scss/font-awesome";
 @import "../dev/lib/flag-icon-css/sass/flag-icon";
-// @import "../dev/lib/angular-material/angular-material";
+ @import "../dev/lib/angular-material/angular-material";
 
 // App import
 @import "colors";
@@ -12,9 +12,10 @@
 @import "../dev/app/menu/styles";
 @import "../dev/app/items/styles";
 @import "../dev/app/attributes/styles";
+@import "../dev/app/viewers/styles";
 @import "../dev/app/components/block/styles";
-@import "../dev/app/components/tag/styles";
 @import "../dev/app/components/item/styles";
+@import "../dev/app/components/textfield/styles";
 
 /* Bug fix for autoprefixer */
 * {

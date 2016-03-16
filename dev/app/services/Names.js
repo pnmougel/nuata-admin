@@ -1,5 +1,5 @@
 
-App.factory('Names', function(Attributes) {
+App.factory('Names', function(Attributes, Items) {
   return {
     cache: {
       attribute: {},
@@ -14,30 +14,37 @@ App.factory('Names', function(Attributes) {
     getNames: function(ids, type, lang) {
       var that = this;
       var typeCache = that.cache[type];
-      var repository = type == 'attribute' ? Attributes : Attributes;
+      var repository = type == 'attribute' ? Attributes : Items;
       var idsToSearch = [];
       var idToLabel = {};
 
       ids.forEach(function(id) {
         if(id in typeCache && lang in typeCache[id]) {
-          idToLabel = typeCache[id][lang]
+          idToLabel[id] = typeCache[id][lang]
         } else {
           idsToSearch.push(id)
         }
       });
 
-      return repository.names({id: idsToSearch}).$promise.then(function(labels) {
-        labels.forEach(function(label) {
-          if(!(label.id in typeCache)) {
-            typeCache[label.id] = {};
-          }
-          typeCache[label.id][lang] = {
-            name: label.name,
-            description: label.description
-          };
-          idToLabel[label.id] = typeCache[label.id][lang]
-        });
-        return idToLabel;
+      return new Promise( function(resolve) {
+        if(idsToSearch.length === 0) {
+          resolve(idToLabel)
+        } else {
+          repository.names({id: idsToSearch}).$promise.then(function(labels) {
+            labels.forEach(function(label, i) {
+              var id = idsToSearch[i];
+              if(!(id in typeCache)) {
+                typeCache[id] = {};
+              }
+              typeCache[id][lang] = {
+                name: label.name,
+                description: label.description
+              };
+              idToLabel[id] = typeCache[id][lang]
+            });
+            resolve(idToLabel);
+          });
+        }
       });
     }
   }

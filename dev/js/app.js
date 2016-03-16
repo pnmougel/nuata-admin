@@ -71,15 +71,14 @@ App.controller('AttributesCtrl', function($scope, $stateParams, Attributes, Data
   var resource = Attributes;
   $scope.languages = ['en', 'fr'];
   $scope.curLang = 'en';
-  $scope.currentPage = 1;
   $scope.filter = {
     name: '',
     page: 1,
     limit: 5,
-    valueType: ''
+    valueType: '',
+    instanceOf: ''
   };
   $scope.pageChanged = function() {
-    $scope.filter.start = ($scope.filter.page - 1) * ($scope.filter.limit);
     $scope.getItems();
   };
   DataTypes.query().$promise.then(function(dataTypes) {
@@ -103,6 +102,10 @@ App.directive('attribute', function(Names) {
     link: function(scope) {
       scope.curLang = 'en';
       scope.langs = [];
+      scope.expanded = false;
+      scope.filterByInstance = function(instanceId) {
+        console.log(instanceId);
+      };
       for (var lang in scope.item.labels) {
         scope.langs.push(lang.trim());
       }
@@ -110,6 +113,12 @@ App.directive('attribute', function(Names) {
         scope.curLang = lang;
       };
       Names.getAttributeNames(scope.item.attributeIds, scope.curLang).then(function(names) {});
+      Names.getItemNames(scope.item.instancesOf, scope.curLang).then(function(labels) {
+        scope.instancesOfNames = labels;
+      });
+      Names.getItemNames(scope.item.subclassesOf, scope.curLang).then(function(labels) {
+        scope.subclassesOfNames = labels;
+      });
     },
     templateUrl: 'app/attributes/attribute.html'
   };
@@ -121,7 +130,7 @@ App.constant('ServerUrl', 'http://localhost:9000');
 "use strict";
 App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
   'use strict';
-  $urlRouterProvider.otherwise('app/attributes');
+  $urlRouterProvider.otherwise('app/items');
   $stateProvider.state('app', {
     abstract: true,
     url: '/app',
@@ -147,8 +156,11 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', functio
   }).state('app.attributes', {
     url: '/attributes',
     templateUrl: 'app/attributes/view.html',
-    controller: 'AttributesCtrl',
-    params: {type: null}
+    controller: 'AttributesCtrl'
+  }).state('app.viewers', {
+    url: '/viewers',
+    templateUrl: 'app/viewers/view.html',
+    controller: 'ViewersCtrl'
   }).state('app.updates', {
     url: '/updates',
     templateUrl: 'app/updates/view.html',
@@ -359,15 +371,16 @@ App.controller('MenuCtrl', function($scope, $state) {
   }, {
     label: 'Attributes',
     icon: 'fa fa-tags',
-    state: 'app.attributes',
-    params: {type: 'attributes'},
-    children: []
+    state: 'app.attributes'
   }, {
-    label: 'Objects of interest',
+    label: 'Viewers',
     icon: 'fa fa-bullseye',
-    state: 'app.items',
-    params: {type: 'ooi'},
-    children: []
+    state: 'app.viewers',
+    children: [{
+      label: 'Add new',
+      icon: 'fa fa-bullseye',
+      state: 'app.viewers'
+    }]
   }, {
     label: 'Units',
     icon: 'fa fa-balance-scale',
@@ -389,7 +402,7 @@ App.controller('MenuCtrl', function($scope, $state) {
     $scope.curMenuItem = item;
     $state.go(item.state, item.params);
   };
-  $scope.selectItem($scope.menu[2]);
+  $scope.selectItem($scope.menu[3]);
   $scope.backgroundImageStyle = 'background: #233646';
 });
 
@@ -729,6 +742,34 @@ App.factory('Init', function($resource, ServerUrl) {
 });
 
 "use strict";
+App.factory('Items', function($resource, ServerUrl) {
+  return $resource(ServerUrl + '/', {}, {
+    index: {
+      method: 'POST',
+      url: ServerUrl + '/item/index'
+    },
+    match: {
+      method: 'POST',
+      url: ServerUrl + '/item/list',
+      isArray: true
+    },
+    get: {
+      method: 'GET',
+      url: ServerUrl + '/item/:id'
+    },
+    search: {
+      method: 'GET',
+      url: ServerUrl + '/item/search'
+    },
+    names: {
+      method: 'GET',
+      url: ServerUrl + '/item/name',
+      isArray: true
+    }
+  });
+});
+
+"use strict";
 App.factory('Oois', function($resource, ServerUrl) {
   return $resource(ServerUrl + '/', {}, {
     index: {
@@ -772,6 +813,20 @@ App.factory('Units', function($resource, ServerUrl) {
     find: {
       method: 'GET',
       url: ServerUrl + '/dimension/search'
+    }
+  });
+});
+
+"use strict";
+App.factory('Viewers', function($resource, ServerUrl) {
+  return $resource(ServerUrl + '/viewer', {}, {
+    update: {
+      method: 'PUT',
+      url: ServerUrl + '/viewer/:id'
+    },
+    delete: {
+      method: 'DELETE',
+      url: ServerUrl + '/viewer/:id'
     }
   });
 });
@@ -821,7 +876,7 @@ App.factory('ItemConfig', function(Dimensions, Categories, Units, Oois) {
 });
 
 "use strict";
-App.factory('Names', function(Attributes) {
+App.factory('Names', function(Attributes, Items) {
   return {
     cache: {
       attribute: {},
@@ -836,28 +891,35 @@ App.factory('Names', function(Attributes) {
     getNames: function(ids, type, lang) {
       var that = this;
       var typeCache = that.cache[type];
-      var repository = type == 'attribute' ? Attributes : Attributes;
+      var repository = type == 'attribute' ? Attributes : Items;
       var idsToSearch = [];
       var idToLabel = {};
       ids.forEach(function(id) {
         if (id in typeCache && lang in typeCache[id]) {
-          idToLabel = typeCache[id][lang];
+          idToLabel[id] = typeCache[id][lang];
         } else {
           idsToSearch.push(id);
         }
       });
-      return repository.names({id: idsToSearch}).$promise.then(function(labels) {
-        labels.forEach(function(label) {
-          if (!(label.id in typeCache)) {
-            typeCache[label.id] = {};
-          }
-          typeCache[label.id][lang] = {
-            name: label.name,
-            description: label.description
-          };
-          idToLabel[label.id] = typeCache[label.id][lang];
-        });
-        return idToLabel;
+      return new Promise(function(resolve) {
+        if (idsToSearch.length === 0) {
+          resolve(idToLabel);
+        } else {
+          repository.names({id: idsToSearch}).$promise.then(function(labels) {
+            labels.forEach(function(label, i) {
+              var id = idsToSearch[i];
+              if (!(id in typeCache)) {
+                typeCache[id] = {};
+              }
+              typeCache[id][lang] = {
+                name: label.name,
+                description: label.description
+              };
+              idToLabel[id] = typeCache[id][lang];
+            });
+            resolve(idToLabel);
+          });
+        }
       });
     }
   };
@@ -1089,6 +1151,30 @@ App.controller('UpdateCtrl', function($scope, $location, Nuata, Status, Categori
 });
 
 "use strict";
+App.controller('ViewersCtrl', function($scope, $stateParams, Viewers) {
+  var resource = Viewers;
+  $scope.filter = {
+    name: '',
+    page: 1,
+    limit: 5
+  };
+  $scope.pageChanged = function() {
+    $scope.getItems();
+  };
+  $scope.newItem = {
+    name: '',
+    description: ''
+  };
+  $scope.getItems = function() {
+    resource.get($scope.filter).$promise.then(function(res) {
+      $scope.nbItems = res.nbItems;
+      $scope.items = res.items;
+    });
+  };
+  $scope.getItems();
+});
+
+"use strict";
 App.directive('block', function() {
   return {
     restrict: 'E',
@@ -1097,17 +1183,22 @@ App.directive('block', function() {
       title: '=',
       width: '=',
       color: '=',
-      borderColor: '='
+      borderColor: '=',
+      collapsible: '='
     },
-    templateUrl: 'app/components/block/view.html',
-    compile: function(element, attrs) {
-      if (!attrs.width) {
-        attrs.width = 12;
+    link: function(scope) {
+      if (!scope.width) {
+        scope.width = 12;
       }
-      if (!attrs.borderColor) {
-        attrs.borderColor = '\"rgb(255, 255, 255)\"';
+      if (!scope.borderColor) {
+        scope.borderColor = '\"rgb(255, 255, 255)\"';
       }
-    }
+      scope.isExpanded = true;
+      scope.toggle = function() {
+        scope.isExpanded = !scope.isExpanded;
+      };
+    },
+    templateUrl: 'app/components/block/view.html'
   };
 });
 
@@ -1148,6 +1239,13 @@ App.directive('item', function(ItemConfig) {
           searchText: category.name.en
         });
       });
+      scope.parents = [];
+      scope.item.parents.forEach(function(parent) {
+        scope.parents.push({
+          item: parent,
+          searchText: parent.name.en
+        });
+      });
       scope.descriptions = [];
       scope.languages.forEach(function(lang) {
         if (lang in scope.item.description) {
@@ -1164,11 +1262,6 @@ App.directive('item', function(ItemConfig) {
           isDefault: false
         });
       };
-      scope.removeName = function(name) {
-        if (!name.isDefault) {
-          scope.names.remove(name);
-        }
-      };
       scope.addDescription = function() {
         scope.descriptions.push({
           lang: '',
@@ -1176,13 +1269,13 @@ App.directive('item', function(ItemConfig) {
         });
       };
       scope.addCategory = function() {
-        scope.categories.push({});
+        scope.categories.push({hasFocus: true});
       };
-      scope.removeCategory = function(category) {
-        scope.categories.remove(category);
+      scope.removeItem = function(item, kind) {
+        scope[kind].remove(item);
       };
-      scope.autoComplete = function(foo) {
-        return ItemConfig.category.resource.find({name: foo.searchText}).$promise.then(function(items) {
+      scope.autoComplete = function(item, kind) {
+        return ItemConfig[kind].resource.find({name: item.searchText}).$promise.then(function(items) {
           return items.items.map(function(item) {
             return {
               item: item,
@@ -1224,26 +1317,47 @@ App.directive('pageTitle', function() {
 });
 
 "use strict";
-App.directive('tag', function() {
+App.directive('textField', function($timeout) {
   return {
     restrict: 'E',
     scope: {
-      item: '=',
-      category: '=',
-      label: '=',
-      icon: '=',
-      onDelete: '='
+      value: '=',
+      updated: '=',
+      onUpdate: '=',
+      fieldName: '=',
+      placeholder: '='
     },
-    templateUrl: 'app/components/tag/view.html'
+    link: function(scope) {
+      scope.sourceValue = angular.copy(scope.value);
+      scope.update = function() {
+        scope.updated = scope.sourceValue !== scope.value;
+        $timeout(function() {
+          scope.onUpdate(scope.fieldName, scope.value).then(function(errorMessage) {
+            scope.errorMessage = errorMessage;
+            scope.hasError = scope.errorMessage.length !== 0;
+            scope.$apply();
+          });
+        }, 100);
+      };
+    },
+    templateUrl: 'app/components/textfield/view.html'
   };
 });
 
 "use strict";
-App.directive('attributeRef', function() {
+App.directive('attributeRef', function(Names) {
   return {
     restrict: 'E',
     scope: {value: '='},
-    templateUrl: 'app/edgevalues/attributeRef/view.html'
+    templateUrl: 'app/edgevalues/attributeRef/view.html',
+    link: function(scope) {
+      if (scope.value) {
+        Names.getAttributeNames([scope.value.id], 'en').then(function(label) {
+          scope.label = label[scope.value.id];
+          scope.$apply();
+        });
+      }
+    }
   };
 });
 
@@ -1257,11 +1371,19 @@ App.directive('externalId', function() {
 });
 
 "use strict";
-App.directive('itemRef', function() {
+App.directive('itemRef', function(Names) {
   return {
     restrict: 'E',
     scope: {value: '='},
-    templateUrl: 'app/edgevalues/itemRef/view.html'
+    templateUrl: 'app/edgevalues/itemRef/view.html',
+    link: function(scope) {
+      if (scope.value) {
+        Names.getItemNames([scope.value.id], 'en').then(function(label) {
+          scope.label = label[scope.value.id];
+          scope.$apply();
+        });
+      }
+    }
   };
 });
 
@@ -1330,6 +1452,48 @@ App.directive('match', function() {
     scope: {item: '='},
     templateUrl: './app/query/categories/match.html',
     link: function(scope, element, attr) {}
+  };
+});
+
+"use strict";
+App.directive('viewer', function(Viewers) {
+  return {
+    restrict: 'E',
+    scope: {item: '='},
+    link: function(scope) {
+      scope.exists = '_id' in scope.item;
+      scope.title = scope.exists ? '' : 'New viewer';
+      scope.delete = function() {
+        console.log("delete");
+        Viewers.delete({id: scope.item._id}).$promise.then(function(res) {
+          console.log(res);
+        });
+      };
+      scope.onUpdate = function(field, newValue) {
+        return new Promise(function(resolve, reject) {
+          if (newValue.trim().length === 0) {
+            resolve("Field must not be empty");
+          } else {
+            if (scope.exists) {
+              Viewers.update({id: scope.item._id}, scope.item).$promise.then(function(res) {
+                if (!res.updated) {
+                  resolve("Server error");
+                } else {
+                  resolve("");
+                }
+              });
+            } else {
+              console.log(scope.item);
+              Viewers.save(scope.item).$promise.then(function(res) {
+                scope.exists = true;
+                scope.item = res;
+              });
+            }
+          }
+        });
+      };
+    },
+    templateUrl: 'app/viewers/item/view.html'
   };
 });
 

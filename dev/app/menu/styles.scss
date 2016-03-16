@@ -14,15 +14,20 @@
 .admin-menu {
   padding-right: 0;
   background-color: #2F4050;
-  
+  position: fixed;
+  top: 0;
+  width: 600px;
+
   ul {
     list-style: none outside none;
-    padding: 0;
+    padding: 0px 0 0 0px;
     background-color: #2F4050;
   }
 
   li.menu-item {
-    padding: 14px 20px 14px 10px;
+    border-left: 3px solid #2F4050;
+
+    padding: 14px 20px 14px 25px;
     cursor: pointer;
     a {
       font-size: 15px;
@@ -40,27 +45,32 @@
 
     ul.submenu-container {
       padding-top: 10px;
+      background-color: #293846;
     }
 
     li.submenu-item {
       padding: 0px 20px 5px 40px;
       a {
-        font-size: 15px;
-        font-weight: 400;
+        font-size: 14px;
+        font-weight: 300;
         color: #A7B1C2;
         line-height: 20px;
+      }
+      a:hover {
+        color: #FFFFFF;
       }
     }
   }
 
   li.menu-item-selected {
-    border-left: 3px solid #FFFFFF;
+    border-left: 3px solid #AAA;
     background-color: #293846;
     color: #FFFFFF;
     a {
-      color: #fff;
+      color: #FFFFFF;
     }
   }
+
   li:focus {
     outline: 0;
   }
@@ -75,14 +85,11 @@
   }
 
   li.menu-item-selected:hover {
-    border-left: 3px solid #FFFFFF;
+    border-left: 3px solid #AAA;
     background-color: #293846;
+
   }
 
-}
-
-.row{
-  //overflow: hidden;
 }
 
 .admin-content {
@@ -90,8 +97,6 @@
   background-color: #ECECEC;
   padding-left: 50px;
   padding-right: 80px;
-  //margin-bottom: -99999px;
-  //padding-bottom: 99999px;
 }
 
 .page-title {
