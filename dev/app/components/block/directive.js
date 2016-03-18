@@ -10,12 +10,12 @@ App.directive('block', function() {
       collapsible: '='
     },
     link: function (scope) {
-      if(!scope.width) {
-        scope.width = 12
-      }
-      if(!scope.borderColor) {
-        scope.borderColor = '\"rgb(255, 255, 255)\"'
-      }
+      //if(!scope.width) {
+      //  scope.width = 12
+      //}
+      //if(!scope.borderColor) {
+      //  scope.borderColor = '\"rgb(255, 255, 255)\"'
+      //}
       scope.isExpanded = true;
       scope.toggle = function() {
         scope.isExpanded = !scope.isExpanded;

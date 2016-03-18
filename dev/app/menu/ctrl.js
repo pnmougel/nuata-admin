@@ -10,14 +10,6 @@ App.controller('MenuCtrl', function ($scope, $state) {
     params: {},
     children: []
   },{
-    label: 'Items',
-    icon: 'fa fa-cube',
-    state: 'app.items',
-    params: {
-      type: 'dimension'
-    },
-    children: []
-  },{
     label: 'Attributes',
     icon: 'fa fa-tags',
     state: 'app.attributes'
@@ -31,29 +23,41 @@ App.controller('MenuCtrl', function ($scope, $state) {
       state: 'app.viewers'
     }]
   },{
-    label: 'Units',
-    icon: 'fa fa-balance-scale',
-    state: 'app.items',
-    params: {
-      type: 'unit'
+    label: 'Tasks',
+    icon: 'fa fa-tags',
+    state: 'app.tasks',
+    params: {status: ''},
+    children: [{
+      label: 'Running',
+      state: 'app.tasks',
+      params: {status: 'running'}
     },
-    children: []
-  },{
-    label: 'Facts',
-    icon: 'fa fa-flask',
-    state: 'app.facts',
-    params: {},
-    children: []
+    {
+      label: 'Completed',
+      state: 'app.tasks',
+      params: {status: 'completed'}
+    },
+    {
+      label: 'Error',
+      state: 'app.tasks',
+      params: {status: 'error'}
+    }]
   }];
 
-  $scope.selectItem = function (item) {
+  $scope.selectItem = function (item, childItem) {
 
     $scope.menu.forEach(function (i) {
       i.class = 'menu-item';
     });
     item.class = 'menu-item menu-item-selected';
     $scope.curMenuItem = item;
-    $state.go(item.state, item.params)
+    if(childItem) {
+      console.log(childItem)
+      $state.go(childItem.state, childItem.params)
+    } else {
+      console.log('go parent')
+      $state.go(item.state, item.params)
+    }
   };
 
   $scope.selectItem($scope.menu[3]);

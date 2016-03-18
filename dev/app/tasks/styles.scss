@@ -1,0 +1,39 @@
+.attribute {
+  .name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .properties {
+    font-size: 13px;
+  }
+  .value-type i {
+    color: #CC333F;
+  }
+  .description i {
+    color: #00A0B0;
+  }
+  .aliases i {
+    color: #EB6841;
+  }
+  .instance-of i {
+    color: #6A4A3C;
+  }
+}
+
+.itemId {
+  cursor: pointer;
+}
+
+.lang {
+  //display: inline-block;
+  max-height: 17px;
+  margin-top: 10px;
+  color: #337AB7;
+  border: 1px solid #337AB7;
+  border-radius: 2px;
+  padding: 2px 5px 1px 5px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 8px;
+  margin-right: 0px;
+}

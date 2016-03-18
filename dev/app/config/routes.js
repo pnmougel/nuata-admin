@@ -49,6 +49,12 @@ App.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
                 templateUrl: 'app/viewers/view.html',
                 controller: 'ViewersCtrl'
             })
+            .state('app.tasks', {
+                url: '/tasks',
+                templateUrl: 'app/tasks/view.html',
+                controller: 'TasksCtrl',
+                params: {status: null}
+            })
             .state('app.updates', {
                 url: '/updates',
                 templateUrl: 'app/updates/view.html',

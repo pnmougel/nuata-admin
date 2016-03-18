@@ -6,8 +6,8 @@
             <div style="font-size: 16px;">Data for people</div>
         </div>
         <ul >
-            <li ng-class="menuItem.class" ng-repeat="menuItem in menu" ng-click="selectItem(menuItem)" >
-                <a >
+            <li ng-class="menuItem.class" ng-repeat="menuItem in menu"  >
+                <a ng-click="selectItem(menuItem)">
                     <i ng-class="menuItem.icon"></i>
                     {{menuItem.label}}
                 </a>
@@ -21,7 +21,8 @@
             </li>
         </ul>
     </div>
-    <div flex="15"></div>
+    <div flex="15" >
+    </div>
     <div flex="85" class="admin-content">
         <div class="row">
             <div data-ui-view=""></div>

@@ -1,0 +1,39 @@
+<page-title label="'Tasks'"></page-title>
+
+<div ng-if="hasStatus">
+    <block title="'Search'">
+        <md-content>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Name</label>
+                    <input
+                            ng-model="filter.name"
+                            placeholder="Leave empty for all"
+                            ng-model-options="{debounce: 200}"
+                            ng-change="getItems()">
+                </md-input-container>
+
+
+                <md-select ng-change="getItems()" ng-model="filter.status" placeholder="Status" flex="10">
+                    <md-option ng-value="''">All status</md-option>
+                    <md-option ng-value="status" ng-repeat="status in statuses">{{status}}</md-option>
+                </md-select>
+            </div>
+        </md-content>
+    </block>
+
+    <uib-pagination
+            flex=""
+            style="margin: 0 0 5px 0;"
+            ng-change="pageChanged()" class="pagination-sm" boundary-links="true"
+            total-items="nbItems" ng-model="filter.page" max-size="10" items-per-page="filter.limit"
+            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+    <span style="position: relative;top: 5px;float: right;">{{nbItems | number}} results</span>
+
+    <task item="item" ng-repeat="item in items"></task>
+</div>
+
+<div ng-hide="hasStatus">
+    <task-item item="item" ng-repeat="item in tasks"></task-item>
+</div>
+
