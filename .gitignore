@@ -9,4 +9,5 @@ gulp_tasks/sshConfig.js
 dev/css/*.css
 .sass-cache/
 **/.sass-cache
+**/*.scssc
 www

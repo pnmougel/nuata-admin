@@ -7,7 +7,8 @@ App.directive('block', function() {
       width: '=',
       color: '=',
       borderColor: '=',
-      collapsible: '='
+      collapsible: '=',
+      collapsed: '='
     },
     link: function (scope) {
       //if(!scope.width) {
@@ -16,9 +17,9 @@ App.directive('block', function() {
       //if(!scope.borderColor) {
       //  scope.borderColor = '\"rgb(255, 255, 255)\"'
       //}
-      scope.isExpanded = true;
+      // scope.isExpanded = true;
       scope.toggle = function() {
-        scope.isExpanded = !scope.isExpanded;
+        scope.collapsed = !scope.collapsed;
       }
     },
     templateUrl: 'app/components/block/view.html'

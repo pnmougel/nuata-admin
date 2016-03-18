@@ -1,7 +1,5 @@
 App.controller('TasksCtrl', function ($scope, Tasks, $stateParams) {
 
-  console.log($stateParams);
-
   if($stateParams.status) {
     $scope.hasStatus = true;
   }
@@ -22,7 +20,6 @@ App.controller('TasksCtrl', function ($scope, Tasks, $stateParams) {
   });
 
   Tasks.list().$promise.then(function(tasks) {
-    console.log(tasks);
     $scope.tasks = tasks;
   });
 

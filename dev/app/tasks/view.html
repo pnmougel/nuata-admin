@@ -30,7 +30,7 @@
             previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
     <span style="position: relative;top: 5px;float: right;">{{nbItems | number}} results</span>
 
-    <task item="item" ng-repeat="item in items"></task>
+    <task item="item" update="getItems" ng-repeat="item in items"></task>
 </div>
 
 <div ng-hide="hasStatus">

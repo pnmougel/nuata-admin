@@ -8,6 +8,11 @@ App.factory('Viewers', function($resource, ServerUrl) {
     delete: {
       method: 'DELETE',
       url: ServerUrl + '/viewer/:id'
+    },
+    get: {
+      method: 'GET',
+      url: ServerUrl + '/viewer/',
+      cache: false
     }
   })
 });

@@ -1,4 +1,4 @@
-<block title="title">
+<block title="title" collapsed="nExists">
     <div layout="row">
         <div flex="grow">
             <div style="font-weight: bold;">
@@ -9,7 +9,7 @@
             </div>
         </div>
         <div>
-            <md-button ng-click="delete()">DELETE</md-button>
+            <md-button ng-click="action()">{{actionName}}</md-button>
         </div>
     </div>
 </block>

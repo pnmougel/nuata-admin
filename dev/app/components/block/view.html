@@ -2,5 +2,5 @@
     <div class="block-title" layout="row">
         <span ng-click="toggle()" flex="grow">{{title}}</span>
     </div>
-    <div ng-show="isExpanded" ng-transclude></div>
+    <div ng-hide="collapsed" ng-transclude></div>
 </div>

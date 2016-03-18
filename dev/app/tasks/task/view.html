@@ -4,10 +4,13 @@
             <div flex="80">
                 <div style="font-weight: bold;">{{item.name}}</div>
                 <div>{{item.doing}}</div>
-                <div>{{item.status}}</div>
+                <div>{{item.status}} <span>(finished {{item.remaining}})</span></div>
             </div>
-            <div flex="auto" style="text-align: right;">
+            <div ng-show="item.status === 'Running'" flex="auto" style="text-align: right;">
                 <md-button ng-click="stop()">STOP</md-button>
+            </div>
+            <div ng-hide="item.status === 'Running'" flex="auto" style="text-align: right;">
+                <md-button ng-click="remove()">Remove</md-button>
             </div>
         </div>
         <div ng-show="item.status !== 'Completed'">

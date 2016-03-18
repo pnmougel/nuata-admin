@@ -18,6 +18,10 @@ App.factory('Tasks', function($resource, ServerUrl) {
     stop: {
       method: 'POST',
       url: ServerUrl + '/task/stop/:id'
+    },
+    state: {
+      method: 'GET',
+      url: ServerUrl + '/task/state'
     }
   });
 });

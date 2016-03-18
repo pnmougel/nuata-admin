@@ -243,11 +243,15 @@ App.controller('MenuCtrl', function($scope, $state) {
     }, {
       label: 'Completed',
       state: 'app.tasks',
-      params: {status: 'completed'}
+      params: {status: 'complete'}
     }, {
       label: 'Error',
       state: 'app.tasks',
       params: {status: 'error'}
+    }, {
+      label: 'Stopped',
+      state: 'app.tasks',
+      params: {status: 'stop'}
     }]
   }];
   $scope.selectItem = function(item, childItem) {
@@ -257,14 +261,12 @@ App.controller('MenuCtrl', function($scope, $state) {
     item.class = 'menu-item menu-item-selected';
     $scope.curMenuItem = item;
     if (childItem) {
-      console.log(childItem);
       $state.go(childItem.state, childItem.params);
     } else {
-      console.log('go parent');
       $state.go(item.state, item.params);
     }
   };
-  $scope.selectItem($scope.menu[3]);
+  $scope.selectItem($scope.menu[2]);
   $scope.backgroundImageStyle = 'background: #233646';
 });
 
@@ -675,6 +677,10 @@ App.factory('Tasks', function($resource, ServerUrl) {
     stop: {
       method: 'POST',
       url: ServerUrl + '/task/stop/:id'
+    },
+    state: {
+      method: 'GET',
+      url: ServerUrl + '/task/state'
     }
   });
 });
@@ -713,6 +719,11 @@ App.factory('Viewers', function($resource, ServerUrl) {
     delete: {
       method: 'DELETE',
       url: ServerUrl + '/viewer/:id'
+    },
+    get: {
+      method: 'GET',
+      url: ServerUrl + '/viewer/',
+      cache: false
     }
   });
 });
@@ -869,7 +880,6 @@ App.factory('Status', [function() {
 
 "use strict";
 App.controller('TasksCtrl', function($scope, Tasks, $stateParams) {
-  console.log($stateParams);
   if ($stateParams.status) {
     $scope.hasStatus = true;
   }
@@ -886,7 +896,6 @@ App.controller('TasksCtrl', function($scope, Tasks, $stateParams) {
     $scope.statuses = dataTypes;
   });
   Tasks.list().$promise.then(function(tasks) {
-    console.log(tasks);
     $scope.tasks = tasks;
   });
   $scope.getItems = function() {
@@ -899,7 +908,7 @@ App.controller('TasksCtrl', function($scope, Tasks, $stateParams) {
 });
 
 "use strict";
-App.controller('ViewersCtrl', function($scope, $stateParams, Viewers) {
+App.controller('ViewersCtrl', function($scope, $stateParams, Viewers, $timeout) {
   var resource = Viewers;
   $scope.filter = {
     name: '',
@@ -913,9 +922,18 @@ App.controller('ViewersCtrl', function($scope, $stateParams, Viewers) {
     name: '',
     description: ''
   };
+  $scope.$on('created', function(event, item) {
+    $scope.items.push(item);
+  });
+  $scope.$on('deleted', function(event, deletedItem) {
+    $scope.items = $scope.items.filter(function(item) {
+      return item._id !== deletedItem._id;
+    });
+  });
   $scope.getItems = function() {
     resource.get($scope.filter).$promise.then(function(res) {
       $scope.nbItems = res.nbItems;
+      console.log($scope.nbItems);
       $scope.items = res.items;
     });
   };
@@ -932,12 +950,12 @@ App.directive('block', function() {
       width: '=',
       color: '=',
       borderColor: '=',
-      collapsible: '='
+      collapsible: '=',
+      collapsed: '='
     },
     link: function(scope) {
-      scope.isExpanded = true;
       scope.toggle = function() {
-        scope.isExpanded = !scope.isExpanded;
+        scope.collapsed = !scope.collapsed;
       };
     },
     templateUrl: 'app/components/block/view.html'
@@ -1198,16 +1216,42 @@ App.directive('match', function() {
 });
 
 "use strict";
-App.directive('task', function(Tasks, $interval) {
+App.directive('task', function(Tasks, $interval, moment) {
   return {
     restrict: 'E',
-    scope: {item: '='},
+    scope: {
+      item: '=',
+      update: '='
+    },
     link: function(scope) {
-      $interval(function() {
-        console.log('test');
-      }, 1000);
+      scope.item.percentage = 0;
+      var startedAt = moment(scope.item.createdAt).unix();
+      moment.locale('en');
+      if (scope.item.status === "Running") {
+        $interval(function() {
+          Tasks.state({id: scope.item._id}).$promise.then(function(item) {
+            var now = moment().unix();
+            var secondToFinish = (now - startedAt) / item.percentage;
+            var ending = moment().add(secondToFinish, 's');
+            scope.item.percentage = item.percentage;
+            scope.item.doing = item.doing;
+            scope.item.status = item.status;
+            scope.item.remaining = ending.fromNow();
+            if (item.status !== "Running") {
+              scope.update();
+            }
+          });
+        }, 2000);
+      }
       scope.stop = function() {
-        Tasks.stop({id: scope.item._id}, {id: scope.item._id}).$promise.then(function() {});
+        Tasks.stop({id: scope.item._id}, {id: scope.item._id}).$promise.then(function() {
+          scope.update();
+        });
+      };
+      scope.remove = function() {
+        Tasks.delete({id: scope.item._id}, {id: scope.item._id}).$promise.then(function() {
+          scope.update();
+        });
       };
     },
     templateUrl: 'app/tasks/task/view.html'
@@ -1232,16 +1276,34 @@ App.directive('taskItem', function(Tasks) {
 App.directive('viewer', function(Viewers) {
   return {
     restrict: 'E',
-    scope: {item: '='},
+    scope: {
+      item: '=',
+      autoUpdate: '='
+    },
     link: function(scope) {
       scope.exists = '_id' in scope.item;
-      scope.title = scope.exists ? '' : 'New viewer';
-      scope.delete = function() {
-        console.log("delete");
+      scope.nExists = !scope.exists;
+      scope.deleteItem = function() {
         Viewers.delete({id: scope.item._id}).$promise.then(function(res) {
-          console.log(res);
+          scope.$emit('deleted', scope.item);
         });
       };
+      scope.createItem = function() {
+        Viewers.save(scope.item).$promise.then(function(res) {
+          scope.item = angular.copy(scope.newItem);
+          scope.$emit('created', res);
+        });
+      };
+      if (scope.exists) {
+        scope.action = scope.deleteItem;
+        scope.actionName = 'Delete';
+        scope.title = '';
+      } else {
+        scope.action = scope.createItem;
+        scope.actionName = 'Create';
+        scope.title = 'Create new viewer';
+        scope.newItem = angular.copy(scope.item);
+      }
       scope.onUpdate = function(field, newValue) {
         return new Promise(function(resolve, reject) {
           if (newValue.trim().length === 0) {
@@ -1254,12 +1316,6 @@ App.directive('viewer', function(Viewers) {
                 } else {
                   resolve("");
                 }
-              });
-            } else {
-              console.log(scope.item);
-              Viewers.save(scope.item).$promise.then(function(res) {
-                scope.exists = true;
-                scope.item = res;
               });
             }
           }

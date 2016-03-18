@@ -35,12 +35,17 @@ App.controller('MenuCtrl', function ($scope, $state) {
     {
       label: 'Completed',
       state: 'app.tasks',
-      params: {status: 'completed'}
+      params: {status: 'complete'}
     },
     {
       label: 'Error',
       state: 'app.tasks',
       params: {status: 'error'}
+    },
+    {
+      label: 'Stopped',
+      state: 'app.tasks',
+      params: {status: 'stop'}
     }]
   }];
 
@@ -52,15 +57,13 @@ App.controller('MenuCtrl', function ($scope, $state) {
     item.class = 'menu-item menu-item-selected';
     $scope.curMenuItem = item;
     if(childItem) {
-      console.log(childItem)
       $state.go(childItem.state, childItem.params)
     } else {
-      console.log('go parent')
       $state.go(item.state, item.params)
     }
   };
 
-  $scope.selectItem($scope.menu[3]);
+  $scope.selectItem($scope.menu[2]);
 
   $scope.backgroundImageStyle = 'background: #233646';
 });
