@@ -3,9 +3,9 @@ var App = angular.module('nuata', [
     'ui.router',
     'ngResource',
     'angularMoment',
-    'ui.ace',
     'ngMaterial',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'satellizer'
 ]);
 
 App.run(function ($rootScope) {
