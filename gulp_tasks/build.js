@@ -19,15 +19,13 @@ gulp.task('sass-min',
 );
 
 gulp.task('minify-js', function() {
-    console.log(bowerFiles.match('!**/jquery.js').ext('js').files);
-    
     // Concat and minify the js files
     gulp.src(bowerFiles.match('!**/jquery.js').ext('js').files)
         .pipe(concat('lib.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('www/js/'));
 
-    gulp.src(['./dev/app/**/*.js', '!./dev/app/config/constants-server.js'])
+    gulp.src(['./dev/app/**/*.js', '!./dev/app/config/local/*.js'])
         .pipe(concat('app.min.js'))
         .pipe(gulp.dest('www/js/'));
 });
@@ -35,12 +33,6 @@ gulp.task('minify-js', function() {
 gulp.task('copy-html', function () {
     return gulp.src('./dev/app/**/*.html').pipe(gulp.dest('www/app/'));
 });
-
-/*
-gulp.task('copy-css', function () {
-    return gulp.src('./dev/css/*.min.css').pipe(stripCssComments({all: true})).pipe(gulp.dest('../www/css/'));
-});
-*/
 
 gulp.task('copy-favicons', function () {
     return gulp.src('./dev/favicons/*').pipe(gulp.dest('www/favicons/'));

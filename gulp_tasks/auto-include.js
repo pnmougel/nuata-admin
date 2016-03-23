@@ -4,7 +4,7 @@ var inject = require('gulp-inject');
 var bowerFiles = require('./my-bower-files').bowerFiles;
 
 gulp.task('ai', function () {
-    var appSources = gulp.src(['./dev/app/**/*.js'], {read: false});
+    var appSources = gulp.src(['./dev/app/**/*.js', '!./dev/app/config/server/*.js'], {read: false});
     var vendorSources = gulp.src(bowerFiles.ext('js').files, {read: false});
     var cssSources = gulp.src(['./dev/css/*.css', '!./css/*.min.css'], {read: false});
 
