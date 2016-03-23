@@ -3,18 +3,18 @@
         <div layout="row">
             <div flex="80">
                 <div style="font-weight: bold;">{{item.name}}</div>
-                <div>{{item.doing}}</div>
-                <div>{{item.status}} <span>(finished {{item.remaining}})</span></div>
+                <div>{{doing}}</div>
+                <div>{{status}} <span>(finished {{remaining}})</span></div>
             </div>
-            <div ng-show="item.status === 'Running'" flex="auto" style="text-align: right;">
+            <div ng-show="status === 'Running'" flex="auto" style="text-align: right;">
                 <md-button ng-click="stop()">STOP</md-button>
             </div>
-            <div ng-hide="item.status === 'Running'" flex="auto" style="text-align: right;">
+            <div ng-hide="status === 'Running'" flex="auto" style="text-align: right;">
                 <md-button ng-click="remove()">Remove</md-button>
             </div>
         </div>
-        <div ng-show="item.status !== 'Completed'">
-            <md-progress-linear md-mode="determinate" value="{{100 * item.percentage}}"></md-progress-linear>
+        <div ng-show="status !== 'Completed'">
+            <md-progress-linear md-mode="determinate" value="{{100 * percentage}}"></md-progress-linear>
         </div>
     </div>
 </block>
