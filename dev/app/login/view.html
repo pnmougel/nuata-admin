@@ -1,0 +1,26 @@
+<div class="container login" style="background-color: #ECECEC; width: 100%; min-height: 100%;">
+    <div layout="row">
+        <div flex="40"></div>
+        <div flex="20">
+            <div class="login-content">
+                <h1><img src="https://api.nuata.io/icon/100">uata</h1>
+                <form>
+                    <p ng-show="loginError" class="bg-danger" style="color: #555; padding: 5px;">Unable to authenticate</p>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" placeholder="Email" ng-model="user.email" class="form-control"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                            <input type="password" placeholder="Password" ng-model="user.password" class="form-control"/>
+                        </div>
+                        <md-button ng-click="signIn()" type="submit">Sign In</md-button>
+                        <!--<button ng-click="signIn()" type="submit" class="btn btn-info btn-block">Sign In</button>-->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,33 @@
+
+.login {
+  text-align: center;
+
+  .login-content {
+    border-radius: 0px;
+    margin-top: 100px;
+    background-color: #2F4050;
+    color: #fff;
+
+    h1 {
+      font-family: 'Questrial', sans-serif;
+      font-size: 43px;
+      padding-top: 50px;
+      margin-bottom: 0;
+      padding-bottom: 20px;
+      color: #FFF;
+
+      img {
+        margin-right: 4px;
+        width: 38px;
+        margin-bottom: 13px;
+      }
+    }
+
+    form {
+      padding: 5px 30px 20px 30px;
+    }
+    .input-group {
+      margin: 20px 0;
+    }
+  }
+}
