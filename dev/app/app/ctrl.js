@@ -1,7 +1,10 @@
 /**
  * Created by nico on 17/11/15.
  */
-App.controller('MenuCtrl', function ($scope, $state) {
+App.controller('AppCtrl', function ($scope, $state, $auth) {
+  if(!$auth.isAuthenticated()) {
+    $state.go('login');
+  }
   
   $scope.menu = [{
     label: 'Dashboard',
@@ -48,6 +51,11 @@ App.controller('MenuCtrl', function ($scope, $state) {
       params: {status: 'stop'}
     }]
   }];
+
+  $scope.logout = function () {
+    $auth.logout();
+    $state.go('login');
+  };
 
   $scope.selectItem = function (item, childItem) {
 

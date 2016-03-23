@@ -92,16 +92,33 @@
 
 }
 
-.admin-content {
-  min-height: 100%;
-  background-color: #ECECEC;
-  padding-left: 50px;
-  padding-right: 80px;
+.right-panel {
+  .admin-header {
+    background-color: #293846;
+    background-color: #DDDDDD;
+    //background-color: #FFFFFF;
+    //padding: 20px;
+    //padding-left: 40px;
+    border-bottom: 1px solid #293846;
+    font-size: 14px;
+
+    .logout-button {
+      text-align: right;
+    }
+  }
+  .admin-content {
+    min-height: 100%;
+    background-color: #ECECEC;
+    padding-left: 50px;
+    padding-right: 80px;
+  }
+
+  .page-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 20px 0;
+    color: #555;
+  }
 }
 
-.page-title {
-  text-transform: uppercase;
-  font-size: 20px;
-  padding: 20px 0;
-  color: #555;
-}
+

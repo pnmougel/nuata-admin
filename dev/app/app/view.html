@@ -23,9 +23,23 @@
     </div>
     <div flex="15" >
     </div>
-    <div flex="85" class="admin-content">
-        <div class="row">
-            <div data-ui-view=""></div>
+    <div class="right-panel" flex="85" style="min-height: 100%; background-color: #ECECEC;">
+        <div class="row admin-header" style="text-align: right; padding-right: 20px;">
+            <md-button ng-click="logout()">Logout</md-button>
+        </div>
+        <div class="admin-content">
+            <div class="row">
+                <div data-ui-view=""></div>
+            </div>
         </div>
     </div>
+    <!--<div flex="85" class="admin-content">-->
+        <!--<div class="row" flex="100" style="background-color: #fff;-->
+        <!--">-->
+            <!--Logout-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div data-ui-view=""></div>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
