@@ -9,10 +9,36 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="description" content="">
-    <link rel="shortcut icon" href="./img/icon2.png">
+
+    <link rel="shortcut icon" href="https://api.nuata.io/icon/16">
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://api.nuata.io/icon/57" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://api.nuata.io/icon/117" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://api.nuata.io/icon/72" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://api.nuata.io/icon/144" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://api.nuata.io/icon/60" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://api.nuata.io/icon/120" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://api.nuata.io/icon/72" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://api.nuata.io/icon/152" />
+    <link rel="icon" type="image/png" href="https://api.nuata.io/icon/196" sizes="196x196" />
+    <link rel="icon" type="image/png" href="https://api.nuata.io/icon/96" sizes="96x96" />
+    <link rel="icon" type="image/png" href="https://api.nuata.io/icon/32" sizes="32x32" />
+    <link rel="icon" type="image/png" href="https://api.nuata.io/icon/16" sizes="16x16" />
+    <link rel="icon" type="image/png" href="https://api.nuata.io/icon/128" sizes="128x128" />
+
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="https://api.nuata.io/icon/144" />
+    <meta name="msapplication-square70x70logo" content="https://api.nuata.io/icon/70" />
+    <meta name="msapplication-square150x150logo" content="https://api.nuata.io/icon/150" />
+    <meta name="msapplication-wide310x150logo" content="https://api.nuata.io/icon/310" />
+    <meta name="msapplication-square310x310logo" content="https://api.nuata.io/icon/310" />
 
     <!-- style:css -->
     <link rel="stylesheet" href="css/main.css">
+    <!-- endinject -->
+
+    <!-- jquery:js -->
     <!-- endinject -->
 
     <!-- vendor:js -->
@@ -23,30 +49,27 @@
     <script src="lib/moment/moment.js"></script>
     <script src="lib/moment/locale/fr.js"></script>
     <script src="lib/angular-moment/angular-moment.js"></script>
-    <script src="lib/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
-    <script src="lib/jsoneditor/dist/jsoneditor.min.js"></script>
-    <script src="lib/ng-jsoneditor/ng-jsoneditor.min.js"></script>
-    <script src="lib/angular-ui-ace/ui-ace.js"></script>
-    <script src="lib/trianglify/dist/trianglify.min.js"></script>
     <script src="lib/angular-aria/angular-aria.js"></script>
     <script src="lib/angular-material/angular-material.js"></script>
     <script src="lib/clipboard/dist/clipboard.js"></script>
     <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="lib/satellizer/satellizer.js"></script>
     <!-- endinject -->
 
     <!-- app:js -->
     <script src="app/app.js"></script>
     <script src="app/resources.js"></script>
+    <script src="app/app/ctrl.js"></script>
     <script src="app/attributes/ctrl.js"></script>
     <script src="app/attributes/directive.js"></script>
-    <script src="app/config/constants.js"></script>
-    <script src="app/config/routes.js"></script>
     <script src="app/dashboard/ctrl.js"></script>
+    <script src="app/config/routes.js"></script>
     <script src="app/directives/selectOnClick.js"></script>
     <script src="app/edgevalues/directive.js"></script>
-    <script src="app/menu/ctrl.js"></script>
+    <script src="app/login/controller.js"></script>
+    <script src="app/login/resources.js"></script>
     <script src="app/models/BaseModel.js"></script>
     <script src="app/models/Category.js"></script>
     <script src="app/models/Dimension.js"></script>
@@ -73,6 +96,7 @@
     <script src="app/components/item/directive.js"></script>
     <script src="app/components/pageTitle/directive.js"></script>
     <script src="app/components/textfield/directive.js"></script>
+    <script src="app/config/local/constants.js"></script>
     <script src="app/edgevalues/attributeRef/directive.js"></script>
     <script src="app/edgevalues/externalId/directive.js"></script>
     <script src="app/edgevalues/itemRef/directive.js"></script>
@@ -85,6 +109,8 @@
     <script src="app/tasks/task-item/directive.js"></script>
     <script src="app/viewers/item/directive.js"></script>
     <!-- endinject -->
+
+    <base href="/">
 </head>
 
 <body ng-app="nuata">
