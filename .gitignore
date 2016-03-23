@@ -11,3 +11,4 @@ dev/css/*.css
 **/.sass-cache
 **/*.scssc
 www
+js/*.js
